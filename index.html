@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gijón Peritaciones | Peritos de Vehículos en Gijón</title>
+  <meta name="description" content="Gijón Peritaciones - Expertos en peritaje de vehículos en Gijón. Tasaciones oficiales, peritaciones de accidentes, valoraciones para seguros. Más de 15 años de experiencia.">
+  <meta name="keywords" content="perito de coches Gijón, peritaje vehículos Asturias, tasación coches, peritaciones accidentes, valoración vehículos Gijón">
+  <meta property="og:title" content="Gijón Peritaciones | Peritos de Vehículos en Gijón">
+  <meta property="og:description" content="Expertos en peritaje y tasación de vehículos en Gijón. Servicio profesional, rápido y de confianza.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+  <!-- Partículas de fondo -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="url(#logoGrad)" stroke-width="2"/>
+            <path d="M8 24 L12 16 L28 16 L32 24 L28 26 L12 26 Z" fill="url(#logoGrad)"/>
+            <circle cx="14" cy="26" r="3" fill="#0a0f1e" stroke="url(#logoGrad)" stroke-width="1.5"/>
+            <circle cx="26" cy="26" r="3" fill="#0a0f1e" stroke="url(#logoGrad)" stroke-width="1.5"/>
+            <defs>
+              <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40">
+                <stop offset="0%" stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#f59e0b"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-main">Gijón</span>
+          <span class="logo-sub">Peritaciones</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link active">Inicio</a></li>
+        <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+        <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="tel:+34985000000" class="btn-phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          985 000 000
+        </a>
+        <a href="contacto.html" class="btn-primary">Solicitar Peritación</a>
+        <button class="hamburger" id="hamburger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="hero_car.png" alt="Gijón Peritaciones - Perito de vehículos" class="hero-img">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content container">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        Peritos Oficiales Colegiados · Gijón, Asturias
+      </div>
+      <h1 class="hero-title reveal">
+        Peritaje de Vehículos<br>
+        <span class="gradient-text">Profesional y de Confianza</span>
+      </h1>
+      <p class="hero-desc reveal">
+        Más de 15 años avalando la verdad sobre el valor real de los vehículos. 
+        Tasaciones periciales, accidentes, seguros y compraventa en Gijón y toda Asturias.
+      </p>
+      <div class="hero-actions reveal">
+        <a href="contacto.html" class="btn-primary btn-lg">
+          Solicitar Peritación
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+        <a href="servicios.html" class="btn-outline btn-lg">Ver Servicios</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="stat">
+          <span class="stat-number" data-target="2500">0</span><span>+</span>
+          <span class="stat-label">Peritaciones</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-target="15">0</span><span>+</span>
+          <span class="stat-label">Años Experiencia</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-target="98">0</span><span>%</span>
+          <span class="stat-label">Clientes Satisfechos</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-indicator">
+        <div class="scroll-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-items">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Peritos Colegiados</span>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Informe en 24-48h</span>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>+2500 Clientes</span>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Válido en Juzgados</span>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6s4-3 11-3 11 3 11 3v3s-4 3-11 3S1 9 1 9V6z"/><path d="M1 15s4-3 11-3 11 3 11 3v3s-4 3-11 3S1 18 1 18v-3z"/></svg>
+          <span>Toda Asturias</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Section -->
+  <section class="section services-section" id="servicios">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag reveal">Nuestros Servicios</div>
+        <h2 class="section-title reveal">Soluciones Periciales<br><span class="gradient-text">Completas y Profesionales</span></h2>
+        <p class="section-desc reveal">Ofrecemos una gama completa de servicios de peritaje vehicular adaptados a cada situación.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card reveal" onclick="window.location='servicios.html#accidentes'">
+          <div class="service-icon service-icon--blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M17.5 5H2.5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h15a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1z"/>
+              <path d="M5.5 15v3M13.5 15v3M2.5 10h15"/>
+              <path d="M19.5 9l2 2-2 2"/>
+            </svg>
+          </div>
+          <h3>Peritación de Accidentes</h3>
+          <p>Valoración objetiva de daños tras accidentes de tráfico. Informe pericial completo con validez legal para reclamaciones a aseguradoras.</p>
+          <div class="service-link">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </article>
+
+        <article class="service-card reveal" onclick="window.location='servicios.html#tasacion'">
+          <div class="service-icon service-icon--amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h3>Tasación de Vehículos</h3>
+          <p>Determinación del valor real de mercado de cualquier vehículo. Imprescindible para compraventas, herencias, divorcios o garantías bancarias.</p>
+          <div class="service-link">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </article>
+
+        <article class="service-card reveal" onclick="window.location='servicios.html#seguros'">
+          <div class="service-icon service-icon--green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Peritación para Seguros</h3>
+          <p>Asistencia técnica independiente ante compañías aseguradoras. Garantizamos que recibes la compensación justa que te corresponde.</p>
+          <div class="service-link">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </article>
+
+        <article class="service-card reveal" onclick="window.location='servicios.html#judicial'">
+          <div class="service-icon service-icon--purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>
+            </svg>
+          </div>
+          <h3>Perito Judicial</h3>
+          <p>Informes periciales con plena validez ante juzgados y tribunales. Perito inscrito en el Colegio de Ingenieros de Asturias.</p>
+          <div class="service-link">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </article>
+
+        <article class="service-card reveal" onclick="window.location='servicios.html#precompra'">
+          <div class="service-icon service-icon--cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+          <h3>Inspección Precompra</h3>
+          <p>Antes de comprar un vehículo de segunda mano, conoce su estado real. Detectamos fallos ocultos, kilometrajes manipulados y más.</p>
+          <div class="service-link">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </article>
+
+        <article class="service-card reveal" onclick="window.location='servicios.html#robo'">
+          <div class="service-icon service-icon--red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <h3>Daños por Robo o Vandalismo</h3>
+          <p>Cuantificación objetiva de daños causados por robo, intento de robo o actos vandálicos. Informe para la aseguradora y denuncia policial.</p>
+          <div class="service-link">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- proceso Section -->
+  <section class="section process-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag reveal">Cómo Trabajamos</div>
+        <h2 class="section-title reveal">Proceso <span class="gradient-text">Sencillo y Transparente</span></h2>
+      </div>
+      <div class="process-timeline">
+        <div class="process-step reveal">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>Contacta con Nosotros</h3>
+            <p>Llámanos o rellena el formulario online. Te atendemos de lunes a viernes de 9:00 a 19:00.</p>
+          </div>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step reveal">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>Inspección del Vehículo</h3>
+            <p>Nuestro perito se desplaza a la ubicación del vehículo o lo inspeccionamos en nuestras instalaciones.</p>
+          </div>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step reveal">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>Elaboración del Informe</h3>
+            <p>Preparamos un informe pericial detallado con fotografías, valoraciones y conclusiones técnicas.</p>
+          </div>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step reveal">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <h3>Entrega en 24-48 Horas</h3>
+            <p>Recibes el informe firmado y sellado, con plena validez legal, listo para presentar donde necesites.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us Section -->
+  <section class="section why-section">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-image reveal">
+          <img src="service_inspection.png" alt="Perito inspeccionando vehículo" loading="lazy">
+          <div class="why-badge-float">
+            <div class="badge-circle">
+              <span class="badge-num">15+</span>
+              <span class="badge-label">Años</span>
+            </div>
+          </div>
+        </div>
+        <div class="why-content">
+          <div class="section-tag reveal">¿Por Qué Elegirnos?</div>
+          <h2 class="section-title reveal">Experiencia y <span class="gradient-text">Rigor Técnico</span></h2>
+          <p class="why-desc reveal">En Gijón Peritaciones somos peritos independientes, sin vinculación con ninguna compañía aseguradora. Eso significa que trabajamos exclusivamente para ti, con total objetividad e imparcialidad.</p>
+          <ul class="why-list">
+            <li class="reveal">
+              <div class="why-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div>
+                <strong>Independencia total</strong>
+                <span>Sin ningún vínculo con aseguradoras. Solo trabajamos para nuestros clientes.</span>
+              </div>
+            </li>
+            <li class="reveal">
+              <div class="why-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div>
+                <strong>Peritos colegiados</strong>
+                <span>Inscritos en el Colegio Oficial. Informes con plena validez judicial.</span>
+              </div>
+            </li>
+            <li class="reveal">
+              <div class="why-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div>
+                <strong>Tecnología avanzada</strong>
+                <span>Usamos herramientas y software de valoración homologados a nivel europeo.</span>
+              </div>
+            </li>
+            <li class="reveal">
+              <div class="why-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div>
+                <strong>Cobertura en Asturias</strong>
+                <span>Nos desplazamos a cualquier punto de Asturias sin coste adicional en el área de Gijón.</span>
+              </div>
+            </li>
+          </ul>
+          <a href="nosotros.html" class="btn-primary reveal">Conoce nuestro equipo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="section testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag reveal">Testimonios</div>
+        <h2 class="section-title reveal">Lo que Dicen <span class="gradient-text">Nuestros Clientes</span></h2>
+      </div>
+      <div class="testimonials-track-wrapper">
+        <div class="testimonials-track" id="testimonialsTrack">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Tras mi accidente la aseguradora me ofreció una cantidad muy inferior al daño real. Gijón Peritaciones elaboró un informe que me permitió reclamar correctamente. Conseguí el 40% más de indemnización."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">MT</div>
+              <div>
+                <strong>María Torres</strong>
+                <span>Peritación de accidente</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Quería comprar un coche de segunda mano y pedí una inspección precompra. El perito detectó que el cuentakilómetros estaba manipulado y los bajos presentaban corrosión importante. Me ahorré un gran disgusto."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">JR</div>
+              <div>
+                <strong>Javier Rodríguez</strong>
+                <span>Inspección precompra</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Necesitaba una tasación oficial del vehículo de mi padre fallecido para la herencia. El servicio fue muy profesional, rápido y el informe completísimo. Muy recomendable."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">AL</div>
+              <div>
+                <strong>Ana López</strong>
+                <span>Tasación por herencia</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Como abogado, trabajo frecuentemente con Gijón Peritaciones para obtener informes periciales en causas judiciales. Su rigor técnico y su desempeño en sala son impecables. Son mis peritos de confianza."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">PG</div>
+              <div>
+                <strong>Pedro García</strong>
+                <span>Abogado - Perito Judicial</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Me robaron el coche y lo encontraron con daños severos. La aseguradora quería repararlo pero el perito demostró que era una pérdida total. Gracias a su informe cobré el valor real del vehículo."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">CS</div>
+              <div>
+                <strong>Carmen Suárez</strong>
+                <span>Daños por robo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonials-controls">
+          <button class="testimonial-btn" id="prevTestimonial" aria-label="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="testimonial-dots" id="testimonialDots"></div>
+          <button class="testimonial-btn" id="nextTestimonial" aria-label="Siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-bg"></div>
+    <div class="container">
+      <div class="cta-content reveal">
+        <h2>¿Necesitas una Peritación?</h2>
+        <p>Contacta ahora y recibe una respuesta en menos de 2 horas. Sin compromisos, sin costes ocultos.</p>
+        <div class="cta-actions">
+          <a href="contacto.html" class="btn-primary btn-lg">Solicitar Peritación Gratis</a>
+          <a href="tel:+34985000000" class="btn-outline btn-lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            985 000 000
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon logo-icon--sm">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="18" stroke="url(#footerLogoGrad)" stroke-width="2"/>
+                <path d="M8 24 L12 16 L28 16 L32 24 L28 26 L12 26 Z" fill="url(#footerLogoGrad)"/>
+                <circle cx="14" cy="26" r="3" fill="#0a0f1e" stroke="url(#footerLogoGrad)" stroke-width="1.5"/>
+                <circle cx="26" cy="26" r="3" fill="#0a0f1e" stroke="url(#footerLogoGrad)" stroke-width="1.5"/>
+                <defs>
+                  <linearGradient id="footerLogoGrad" x1="0" y1="0" x2="40" y2="40">
+                    <stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#f59e0b"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="logo-text"><span class="logo-main">Gijón</span><span class="logo-sub">Peritaciones</span></div>
+          </a>
+          <p>Peritos de vehículos independientes en Gijón. Servicio profesional, rápido y de confianza en toda Asturias.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook" class="social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" class="social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Servicios</h4>
+          <ul>
+            <li><a href="servicios.html#accidentes">Peritación de Accidentes</a></li>
+            <li><a href="servicios.html#tasacion">Tasación de Vehículos</a></li>
+            <li><a href="servicios.html#seguros">Peritación para Seguros</a></li>
+            <li><a href="servicios.html#judicial">Perito Judicial</a></li>
+            <li><a href="servicios.html#precompra">Inspección Precompra</a></li>
+            <li><a href="servicios.html#robo">Daños por Robo</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="nosotros.html">Quiénes Somos</a></li>
+            <li><a href="blog.html">Blog y Noticias</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="aviso-legal.html">Aviso Legal</a></li>
+            <li><a href="privacidad.html">Política de Privacidad</a></li>
+            <li><a href="cookies.html">Política de Cookies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul class="contact-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Calle Corrida, 12 - 1º<br>33201 Gijón, Asturias
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07"/></svg>
+              <a href="tel:+34985000000">985 000 000</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:info@gijonperitaciones.es">info@gijonperitaciones.es</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Lun–Vie: 9:00 – 19:00<br>Sáb: 9:00 – 14:00
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Gijón Peritaciones S.L. · Todos los derechos reservados · CIF: B-33000000</p>
+        <div class="footer-legal">
+          <a href="aviso-legal.html">Aviso Legal</a>
+          <a href="privacidad.html">Privacidad</a>
+          <a href="cookies.html">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-content">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <p>Utilizamos cookies para mejorar tu experiencia. <a href="cookies.html">Política de cookies</a></p>
+      <div class="cookie-actions">
+        <button id="cookieReject" class="btn-cookie-reject">Rechazar</button>
+        <button id="cookieAccept" class="btn-cookie-accept">Aceptar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

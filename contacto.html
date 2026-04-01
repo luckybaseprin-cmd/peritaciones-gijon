@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | Gijón Peritaciones</title>
+  <meta name="description" content="Contacta con Gijón Peritaciones para solicitar un informe pericial de tu vehículo. Tasaciones, accidentes y más en Asturias.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="animations.css">
+  <style>
+    /* Ensure header has background on inner pages */
+    .header { background: var(--bg-glass-heavy); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-glass); }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="url(#logoGrad)" stroke-width="2"/>
+            <path d="M8 24 L12 16 L28 16 L32 24 L28 26 L12 26 Z" fill="url(#logoGrad)"/>
+            <circle cx="14" cy="26" r="3" fill="#0a0f1e" stroke="url(#logoGrad)" stroke-width="1.5"/>
+            <circle cx="26" cy="26" r="3" fill="#0a0f1e" stroke="url(#logoGrad)" stroke-width="1.5"/>
+            <defs>
+              <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40">
+                <stop offset="0%" stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#f59e0b"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-main">Gijón</span>
+          <span class="logo-sub">Peritaciones</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Inicio</a></li>
+        <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+        <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="contacto.html" class="nav-link active">Contacto</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="tel:+34985000000" class="btn-phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          985 000 000
+        </a>
+        <a href="contacto.html" class="btn-primary">Solicitar Peritación</a>
+        <button class="hamburger" id="hamburger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header relative overflow-hidden">
+    <div class="particles" id="particles"></div>
+    <div class="container relative z-10">
+      <div class="breadcrumb reveal">
+        <a href="index.html">Inicio</a> <span>/</span> Contacto
+      </div>
+      <h1 class="page-title reveal">Hablemos sobre tu <span class="gradient-text">Vehículo</span></h1>
+      <p class="section-desc reveal mx-auto max-w-2xl">Rellena el formulario con los datos de tu coche y sube la documentación o fotos necesarias. Te daremos una valoración inicial gratuita y sin compromiso en menos de 24h.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-container reveal">
+        
+        <!-- Info Sidebar -->
+        <div class="contact-info">
+          <div class="section-tag">Atención al Cliente</div>
+          <h2>Estamos aquí para <span class="gradient-text">ayudarte</span></h2>
+          <p style="color:var(--text-muted); margin-bottom: 2rem;">Nuestro equipo de expertos peritos colegiados está listo para ofrecerte el mejor servicio de tasación y peritaje.</p>
+          
+          <ul class="contact-list" style="margin-bottom: 3rem; display: flex; flex-direction: column; gap: 1.5rem;">
+            <li class="reveal">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(59,130,246,0.1); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" style="color:var(--accent-blue)"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <strong style="display:block; margin-bottom: 0.25rem;">Oficina Gijón</strong>
+                <span style="color:var(--text-muted)">Calle Corrida, 12 - 1º<br>33201 Gijón, Asturias</span>
+              </div>
+            </li>
+            <li class="reveal">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(16,185,129,0.1); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" style="color:var(--accent-emerald)"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07"/></svg>
+              </div>
+              <div>
+                <strong style="display:block; margin-bottom: 0.25rem;">Teléfono de urgencias</strong>
+                <a href="tel:+34985000000" style="color:var(--text-muted)">985 000 000</a>
+              </div>
+            </li>
+            <li class="reveal">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(245,158,11,0.1); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" style="color:var(--accent-amber)"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <strong style="display:block; margin-bottom: 0.25rem;">Correo Electrónico</strong>
+                <a href="mailto:info@gijonperitaciones.es" style="color:var(--text-muted)">info@gijonperitaciones.es</a>
+              </div>
+            </li>
+          </ul>
+
+          <div class="p-6 bg-glass border border-glass rounded-lg reveal">
+            <h3 style="font-size:1.1rem; margin-bottom:0.5rem">Horario de Oficina</h3>
+            <p style="color:var(--text-muted); font-size:0.95rem; display:flex; justify-content:space-between; margin-bottom:0.5rem; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:0.5rem;">
+              <span>Lunes a Viernes</span> <span>09:00 - 19:00</span>
+            </p>
+            <p style="color:var(--text-muted); font-size:0.95rem; display:flex; justify-content:space-between;">
+              <span>Sábados</span> <span>09:00 - 14:00</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Form Area -->
+        <div class="form-glass reveal active">
+          <h3 style="font-size: 1.5rem; margin-bottom: 2rem;">Solicitud de Peritación</h3>
+          <form id="contactForm" autocomplete="off">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+              <div class="form-group">
+                <label for="name">Nombre / Empresa *</label>
+                <input type="text" id="name" class="form-control" required placeholder="Tu nombre">
+                <div class="input-focus-effect"></div>
+              </div>
+              <div class="form-group">
+                <label for="phone">Teléfono *</label>
+                <input type="tel" id="phone" class="form-control" required placeholder="+34 600..." pattern="[0-9\+ ]{9,15}">
+                <div class="input-focus-effect"></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Correo Electrónico *</label>
+              <input type="email" id="email" class="form-control" required placeholder="correo@ejemplo.com">
+              <div class="input-focus-effect"></div>
+            </div>
+
+            <h4 style="margin: 2rem 0 1rem; color: var(--accent-blue); font-size: 1.1rem;">Datos del Vehículo</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+              <div class="form-group">
+                <label for="carBrand">Marca del Vehículo *</label>
+                <select id="carBrand" class="form-control" required>
+                  <option value="" disabled selected>Cargando marcas...</option>
+                </select>
+                <div class="input-focus-effect"></div>
+              </div>
+              <div class="form-group">
+                <label for="carModel">Modelo *</label>
+                <select id="carModel" class="form-control" required disabled>
+                  <option value="" disabled selected>Primero selecciona una marca</option>
+                </select>
+                <div class="input-focus-effect"></div>
+              </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+              <div class="form-group">
+                <label for="matricula">Matrícula (opcional)</label>
+                <input type="text" id="matricula" class="form-control" placeholder="1234 ABC">
+                <div class="input-focus-effect"></div>
+              </div>
+              <div class="form-group">
+                <label for="year">Año (opcional)</label>
+                <input type="number" id="year" class="form-control" placeholder="2020" min="1900" max="2026">
+                <div class="input-focus-effect"></div>
+              </div>
+            </div>
+
+            <h4 style="margin: 2rem 0 1rem; color: var(--accent-blue); font-size: 1.1rem;">Motivo y Documentación</h4>
+            <div class="form-group">
+              <label for="serviceType">Tipo de Servicio *</label>
+              <select id="serviceType" class="form-control" required>
+                <option value="" disabled selected>Selecciona un servicio</option>
+                <option value="accidente">Peritaje de Accidente Múltiple/Individual</option>
+                <option value="tasacion">Tasación por Venta/Herencia</option>
+                <option value="seguro">Reclamación de Terceros/Seguro</option>
+                <option value="precompra">Inspección Precompra</option>
+                <option value="otro">Otro Motivo</option>
+              </select>
+              <div class="input-focus-effect"></div>
+            </div>
+
+            <div class="form-group">
+              <label>Sube documentación, fotos del vehículo o atestado policial (opcional)</label>
+              <div class="file-upload-wrapper" id="fileDropZone">
+                 <input type="file" id="fileInput" multiple accept="image/*,.pdf,.doc,.docx">
+                 <div class="file-upload-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="17 8 12 3 7 8"></polyline>
+                      <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                 </div>
+                 <p style="font-weight:600; font-size:1rem;">Arrastra archivos aquí o haz clic para subir</p>
+                 <p style="color:var(--text-muted); font-size:0.85rem; margin-top:0.5rem;">Se acepta JPG, PNG, PDF (Máx. 10MB por archivo)</p>
+              </div>
+              <div id="fileList" class="file-list"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Mensaje Adicional</label>
+              <textarea id="message" class="form-control" rows="4" placeholder="Explícanos brevemente tu caso..."></textarea>
+              <div class="input-focus-effect"></div>
+            </div>
+            
+            <div class="form-group" style="display:flex; gap:0.5rem; align-items:flex-start;">
+              <input type="checkbox" id="privacy" required style="margin-top:4px;">
+              <label for="privacy" style="font-size:0.85rem;">He leído y acepto la <a href="privacidad.html" style="color:var(--accent-blue)">Política de Privacidad</a> y consiento el tratamiento de mis datos para la elaboración del presupuesto pericial.</label>
+            </div>
+
+            <button type="submit" class="btn-primary btn-lg" style="width:100%; margin-top:1rem;">
+              Enviar Solicitud Segura
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon logo-icon--sm" style="width:30px; height:30px;">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="18" stroke="url(#footerLogoGrad)" stroke-width="2"/>
+                <path d="M8 24 L12 16 L28 16 L32 24 L28 26 L12 26 Z" fill="url(#footerLogoGrad)"/>
+                <circle cx="14" cy="26" r="3" fill="#0a0f1e" stroke="url(#footerLogoGrad)" stroke-width="1.5"/>
+                <circle cx="26" cy="26" r="3" fill="#0a0f1e" stroke="url(#footerLogoGrad)" stroke-width="1.5"/>
+                <defs>
+                  <linearGradient id="footerLogoGrad" x1="0" y1="0" x2="40" y2="40">
+                    <stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#f59e0b"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="logo-text"><span class="logo-main" style="font-size:1rem;">Gijón</span><span class="logo-sub" style="font-size:0.6rem;">Peritaciones</span></div>
+          </a>
+          <p>Peritos de vehículos independientes en Gijón. Servicio profesional, rápido y de confianza en toda Asturias.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook" class="social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" class="social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Servicios</h4>
+          <ul>
+            <li><a href="servicios.html#accidentes">Peritación de Accidentes</a></li>
+            <li><a href="servicios.html#tasacion">Tasación de Vehículos</a></li>
+            <li><a href="servicios.html#seguros">Peritación para Seguros</a></li>
+            <li><a href="servicios.html#judicial">Perito Judicial</a></li>
+            <li><a href="servicios.html#precompra">Inspección Precompra</a></li>
+            <li><a href="servicios.html#robo">Daños por Robo</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="nosotros.html">Quiénes Somos</a></li>
+            <li><a href="blog.html">Blog y Noticias</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="aviso-legal.html">Aviso Legal</a></li>
+            <li><a href="privacidad.html">Política de Privacidad</a></li>
+            <li><a href="cookies.html">Política de Cookies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul class="contact-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Calle Corrida, 12 - 1º<br>33201 Gijón, Asturias
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07"/></svg>
+              <a href="tel:+34985000000">985 000 000</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:info@gijonperitaciones.es">info@gijonperitaciones.es</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Gijón Peritaciones S.L. · Todos los derechos reservados · CIF: B-33000000</p>
+        <div class="footer-legal">
+          <a href="aviso-legal.html">Aviso Legal</a>
+          <a href="privacidad.html">Privacidad</a>
+          <a href="cookies.html">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="contact.js"></script>
+</body>
+</html>

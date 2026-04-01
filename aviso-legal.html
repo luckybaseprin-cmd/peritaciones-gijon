@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aviso Legal | Gijón Peritaciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="animations.css">
+  <style>
+    .header { background: var(--bg-glass-heavy); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-glass); }
+    .legal-content h2 { margin: 2rem 0 1rem; color: var(--text-main); font-size: 1.5rem; font-family: var(--font-display); }
+    .legal-content p { color: var(--text-muted); margin-bottom: 1rem; }
+    .legal-content ul { color: var(--text-muted); padding-left: 2rem; list-style-type: disc; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="url(#logoGrad)" stroke-width="2"/><path d="M8 24 L12 16 L28 16 L32 24 L28 26 L12 26 Z" fill="url(#logoGrad)"/><circle cx="14" cy="26" r="3" fill="#0a0f1e" stroke="url(#logoGrad)" stroke-width="1.5"/><circle cx="26" cy="26" r="3" fill="#0a0f1e" stroke="url(#logoGrad)" stroke-width="1.5"/><defs><linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient></defs></svg></div>
+        <div class="logo-text"><span class="logo-main">Gijón</span><span class="logo-sub">Peritaciones</span></div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Inicio</a></li>
+        <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+        <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </header>
+
+  <section class="page-header relative overflow-hidden" style="padding: 8rem 0 3rem;">
+    <div class="container relative z-10 text-center">
+      <h1 class="page-title reveal" style="font-size:2.5rem;">Aviso <span class="gradient-text">Legal</span></h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container legal-content reveal bg-glass p-8 border border-glass rounded-lg" style="max-width:800px; margin: 0 auto; background: var(--bg-secondary); padding: 3rem; border-radius: var(--radius-lg); border: 1px solid var(--border-glass);">
+      <h2>1. Datos Identificativos</h2>
+      <p>En cumplimiento con el deber de información recogido en artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSICE), a continuación se reflejan los siguientes datos:</p>
+      <ul>
+        <li><strong>Razón social:</strong> Gijón Peritaciones S.L.</li>
+        <li><strong>CIF / NIF:</strong> B-33000000</li>
+        <li><strong>Domicilio Social:</strong> Calle Corrida, 12 - 1º, 33201 Gijón, Asturias</li>
+        <li><strong>Email de contacto:</strong> info@gijonperitaciones.es</li>
+      </ul>
+
+      <h2>2. Uso del Portal</h2>
+      <p>El sitio web de Gijón Peritaciones proporciona el acceso a multitud de informaciones, servicios, programas o datos en Internet de uso corporativo y orientativo.</p>
+
+      <h2>3. Propiedad Intelectual e Industrial</h2>
+      <p>Por sí o como cesionaria, es titular de todos los derechos de propiedad intelectual e industrial de su página web, así como de los elementos contenidos en la misma (a título enunciativo, imágenes, sonido, audio, vídeo, software o textos; marcas o logotipos, combinaciones de colores, estructura y diseño, etc.).</p>
+      
+      <h2>4. Exclusión de Garantías y Responsabilidad</h2>
+      <p>Gijón Peritaciones no se hace responsable, en ningún caso, de los daños y perjuicios de cualquier naturaleza que pudieran ocasionar, a título enunciativo: errores u omisiones en los contenidos, falta de disponibilidad del portal o la transmisión de virus o programas maliciosos.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="justify-content:center; text-align:center;">
+        <p>© 2025 Gijón Peritaciones S.L. · <a href="privacidad.html" style="color:var(--accent-blue)">Política de Privacidad</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>

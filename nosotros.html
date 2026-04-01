@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros | Gijón Peritaciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="animations.css">
+  <style>.header { background: var(--bg-glass-heavy); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-glass); }</style>
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="url(#logoGrad)" stroke-width="2"/><path d="M8 24 L12 16 L28 16 L32 24 L28 26 L12 26 Z" fill="url(#logoGrad)"/><circle cx="14" cy="26" r="3" fill="#0a0f1e" stroke="url(#logoGrad)" stroke-width="1.5"/><circle cx="26" cy="26" r="3" fill="#0a0f1e" stroke="url(#logoGrad)" stroke-width="1.5"/><defs><linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient></defs></svg></div>
+        <div class="logo-text"><span class="logo-main">Gijón</span><span class="logo-sub">Peritaciones</span></div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Inicio</a></li>
+        <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+        <li><a href="nosotros.html" class="nav-link active">Nosotros</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="contacto.html" class="btn-primary">Solicitar Peritación</a>
+        <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </header>
+
+  <section class="page-header relative overflow-hidden">
+    <div class="particles" id="particles"></div>
+    <div class="container relative z-10">
+      <div class="breadcrumb reveal"><a href="index.html">Inicio</a> <span>/</span> Nosotros</div>
+      <h1 class="page-title reveal">Conoce al <span class="gradient-text">Equipo</span></h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:4rem; align-items:center;">
+        <div class="reveal">
+          <div class="section-tag">Nuestra Empresa</div>
+          <h2 style="font-size:2.5rem; margin-bottom:1.5rem; font-family:var(--font-display);">Más de 15 años de independencia</h2>
+          <p style="color:var(--text-muted); font-size:1.1rem; margin-bottom:1rem;">Gijón Peritaciones nace en 2010 con un objetivo claro: ofrecer a los conductores asturianos una voz técnica e independiente frente a las grandes compañías aseguradoras.</p>
+          <p style="color:var(--text-muted); font-size:1.1rem; margin-bottom:2rem;">Somos un bufete pericial de Ingenieros Técnicos Industriales altamente especializados en la cinemática, reconstrucción de accidentes y tasación forense de automóviles.</p>
+          <ul class="why-list" style="margin-bottom:0;">
+            <li><div class="why-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><div><strong>Colegiados Profesionales</strong></div></li>
+            <li><div class="why-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><div><strong>Uso de Audatex y GT Estimate</strong></div></li>
+            <li><div class="why-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><div><strong>Ratificación en Juzgado</strong></div></li>
+          </ul>
+        </div>
+        <div class="reveal" style="position:relative;">
+          <img src="team_expert.png" alt="Equipo experto de peritos" style="border-radius:var(--radius-lg); border:1px solid var(--border-glass);">
+          <div style="position:absolute; bottom:-20px; left:-20px; background:var(--bg-glass-heavy); padding:1.5rem; border-radius:var(--radius-md); border:1px solid var(--border-glass); backdrop-filter:blur(10px);">
+             <h4 style="font-size:1.25rem; font-family:var(--font-display); color:var(--text-main); margin-bottom:0.25rem;">Carlos Álvarez</h4>
+             <p style="color:var(--accent-blue); font-size:0.9rem;">Perito Titular, Nº Colegiado 18320</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="justify-content:center; text-align:center;">
+        <p>© 2025 Gijón Peritaciones S.L. · <a href="aviso-legal.html" style="color:var(--accent-blue)">Aviso Legal</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>

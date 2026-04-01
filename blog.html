@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Automotriz | Gijón Peritaciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="animations.css">
+  <style>.header { background: var(--bg-glass-heavy); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-glass); }</style>
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="url(#logoGrad)" stroke-width="2"/><path d="M8 24 L12 16 L28 16 L32 24 L28 26 L12 26 Z" fill="url(#logoGrad)"/><circle cx="14" cy="26" r="3" fill="#0a0f1e" stroke="url(#logoGrad)" stroke-width="1.5"/><circle cx="26" cy="26" r="3" fill="#0a0f1e" stroke="url(#logoGrad)" stroke-width="1.5"/><defs><linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient></defs></svg></div>
+        <div class="logo-text"><span class="logo-main">Gijón</span><span class="logo-sub">Peritaciones</span></div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Inicio</a></li>
+        <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+        <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+        <li><a href="blog.html" class="nav-link active">Blog</a></li>
+        <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="contacto.html" class="btn-primary">Solicitar Peritación</a>
+        <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </header>
+
+  <section class="page-header relative overflow-hidden">
+    <div class="particles" id="particles"></div>
+    <div class="container relative z-10">
+      <div class="breadcrumb reveal"><a href="index.html">Inicio</a> <span>/</span> Blog</div>
+      <h1 class="page-title reveal">Noticias y <span class="gradient-text">Consejos</span></h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem;">
+      <article class="service-card reveal" style="padding: 1.5rem;">
+        <div style="height:200px; background:var(--bg-primary); border-radius:var(--radius-md); margin-bottom:1.5rem; display:flex; align-items:center; justify-content:center; border:1px solid var(--border-glass);">
+           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" width="60" height="60" style="color:var(--text-muted)"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+        </div>
+        <div class="section-tag" style="font-size:0.75rem; padding: 0.2rem 0.6rem; margin-bottom:0.5rem">Consejos Legales</div>
+        <h3 style="font-size:1.3rem; margin-bottom:0.75rem;">¿Qué hacer si el seguro te declara "Siniestro Total"?</h3>
+        <p style="margin-bottom:1.5rem;">Aprende tus derechos según el artículo 38 de la Ley de Contrato de Seguro y cómo un peritaje independiente puede salvar la valoración de tu coche.</p>
+        <span class="service-link" style="cursor:pointer">Leer artículo</span>
+      </article>
+
+      <article class="service-card reveal" style="padding: 1.5rem;">
+        <div style="height:200px; background:var(--bg-primary); border-radius:var(--radius-md); margin-bottom:1.5rem; display:flex; align-items:center; justify-content:center; border:1px solid var(--border-glass);">
+           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" width="60" height="60" style="color:var(--text-muted)"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+        </div>
+        <div class="section-tag" style="font-size:0.75rem; padding: 0.2rem 0.6rem; margin-bottom:0.5rem">Mecánica</div>
+        <h3 style="font-size:1.3rem; margin-bottom:0.75rem;">Los 5 fallos ocultos más comunes al comprar de segunda mano</h3>
+        <p style="margin-bottom:1.5rem;">Te contamos los problemas mecánicos más repetidos que encontramos en nuestras inspecciones de vehículos usados en Asturias.</p>
+        <span class="service-link" style="cursor:pointer">Leer artículo</span>
+      </article>
+
+      <article class="service-card reveal" style="padding: 1.5rem;">
+        <div style="height:200px; background:var(--bg-primary); border-radius:var(--radius-md); margin-bottom:1.5rem; display:flex; align-items:center; justify-content:center; border:1px solid var(--border-glass);">
+           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" width="60" height="60" style="color:var(--text-muted)"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+        </div>
+        <div class="section-tag" style="font-size:0.75rem; padding: 0.2rem 0.6rem; margin-bottom:0.5rem">Tasaciones</div>
+        <h3 style="font-size:1.3rem; margin-bottom:0.75rem;">Cómo se calcula el "Valor Venal" modificado en 2025</h3>
+        <p style="margin-bottom:1.5rem;">Descubre las tablas de hacienda actuales, depreciación temporal y factores de mercado que alteran el valor real de tu vehículo.</p>
+        <span class="service-link" style="cursor:pointer">Leer artículo</span>
+      </article>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="justify-content:center; text-align:center;">
+        <p>© 2025 Gijón Peritaciones S.L. · <a href="aviso-legal.html" style="color:var(--accent-blue)">Aviso Legal</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>
