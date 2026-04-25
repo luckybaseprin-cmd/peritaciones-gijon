@@ -875,16 +875,16 @@
   <a href="https://wa.me/34652933992" class="wa-btn" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
   <script>
-    // Rutas reales de los PDFs en la raíz del proyecto
+    // Rutas fijas (sin espacios ni tildes) para evitar errores 404 en hosting.
     const PDF_RUTAS = {
-      'caso1': 'daños ocultos-Oxidación.pdf',
-      'caso2': 'daños cocultos-EGR anulada.pdf',
-      'caso3': 'reclamacion a Compañia de Seguros daños por caida en parado.pdf',
-      'caso4': 'reclamacion a Compraventa rotura de Piston.pdf',
-      'caso5': 'reclamación daños rehusados Compañia de Seguros.pdf',
-      'caso6': 'valor venal y mercado).pdf',
-      'caso7': 'Valoracion de daños camión.pdf',
-      'caso8': 'valoracion perdida total.pdf'
+      'caso1': 'pdfs/caso1.pdf',
+      'caso2': 'pdfs/caso2.pdf',
+      'caso3': 'pdfs/caso3.pdf',
+      'caso4': 'pdfs/caso4.pdf',
+      'caso5': 'pdfs/caso5.pdf',
+      'caso6': 'pdfs/caso6.pdf',
+      'caso7': 'pdfs/caso7.pdf',
+      'caso8': 'pdfs/caso8.pdf'
     };
 
     const pdfModal = document.getElementById('pdfModal');
@@ -895,8 +895,7 @@
     function abrirPDF(id, titulo) {
       const ruta = PDF_RUTAS[id];
       if (!ruta) return;
-      const rutaCodificada = encodeURI(ruta);
-      const urlVisor = rutaCodificada + '#toolbar=0&navpanes=0&scrollbar=1&statusbar=0&messages=0';
+      const urlVisor = ruta + '#toolbar=0&navpanes=0&scrollbar=1&statusbar=0&messages=0';
 
       pdfTitle.textContent = titulo;
       pdfLink.href = urlVisor;
