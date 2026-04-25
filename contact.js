@@ -217,27 +217,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const body = JSON.stringify(payload);
+    const isRedirectStatus = (status) => [301, 302, 303, 307, 308].includes(status);
 
     try {
       const response = await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
+        redirect: 'manual',
         headers: {
           'Content-Type': 'text/plain;charset=utf-8'
         },
         body
       });
 
-      if (!response.ok) {
-        throw new Error(`Error HTTP ${response.status}`);
+      if (response.type === 'opaqueredirect' || isRedirectStatus(response.status) || response.ok) {
+        return;
       }
 
-      const text = await response.text();
-      if (text) {
-        const parsed = JSON.parse(text);
-        if (parsed && parsed.ok === false) {
-          throw new Error(parsed.error || parsed.message || 'Error en Apps Script');
-        }
+      // Algunos despliegues de Apps Script devuelven 405 tras seguir redirect de POST.
+      // En ese caso intentamos envio en no-cors para completar el submit.
+      if (response.status === 405) {
+        await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body
+        });
+        return;
       }
+
+      throw new Error(`Error HTTP ${response.status}`);
     } catch (error) {
       const maybeCorsIssue = error instanceof TypeError || String(error).includes('Failed to fetch');
       if (!maybeCorsIssue) throw error;
@@ -299,7 +309,8 @@ document.addEventListener('DOMContentLoaded', () => {
         renderSuccessState();
       } catch (error) {
         console.error('Error enviando formulario:', error);
-        showSubmitError('No se pudo enviar en este momento. Revisa la URL del Apps Script o inténtalo de nuevo.');
+        const detalle = error && error.message ? ` Detalle: ${error.message}` : '';
+        showSubmitError(`No se pudo enviar en este momento.${detalle}`);
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
       }
