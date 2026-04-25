@@ -1,50 +1,56 @@
-// js/contact.js
-
 document.addEventListener('DOMContentLoaded', () => {
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzZVEv1Ooaez7uVNx1mNbgnkoCg_EObpCEqh4OsMP7vh4_iaH5K7dN-QlF8lwM1-bLd/exec';
+  const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024;
+  const MAX_TOTAL_FILES_BYTES = 15 * 1024 * 1024;
+  const ALLOWED_FILE_EXTENSIONS = ['jpg', 'jpeg', 'png', 'pdf', 'doc', 'docx'];
+
   const brandSelect = document.getElementById('carBrand');
   const modelSelect = document.getElementById('carModel');
   const fileDropZone = document.getElementById('fileDropZone');
   const fileInput = document.getElementById('fileInput');
   const fileList = document.getElementById('fileList');
-  
-  let carData = {};
+  const contactForm = document.getElementById('contactForm');
 
-  // 1. Fetch JSON Data
+  let carData = {};
+  let uploadedFiles = [];
+
   fetch('car_data.json')
-    .then(response => {
-      if(!response.ok) throw new Error('Network response was not ok');
+    .then((response) => {
+      if (!response.ok) throw new Error('Network response was not ok');
       return response.json();
     })
-    .then(data => {
-      carData = data.brands; // the top level object has "brands"
+    .then((data) => {
+      carData = data.brands;
       populateBrands();
     })
-    .catch(error => {
+    .catch((error) => {
       console.error('Error fetching car data:', error);
       brandSelect.innerHTML = '<option value="">Error cargando marcas</option>';
     });
 
-  // 2. Populate Brands Dropdown
   function populateBrands() {
     const brands = Object.keys(carData).sort();
     let options = '<option value="" disabled selected>Selecciona Marca...</option>';
-    brands.forEach(brand => {
+
+    brands.forEach((brand) => {
       options += `<option value="${brand}">${brand}</option>`;
     });
+
     brandSelect.innerHTML = options;
   }
 
-  // 3. Handle Brand Change -> Populate Models
   brandSelect.addEventListener('change', (e) => {
     const selectedBrand = e.target.value;
     modelSelect.innerHTML = '<option value="" disabled selected>Cargando modelos...</option>';
-    
+
     if (selectedBrand && carData[selectedBrand]) {
       const models = carData[selectedBrand].sort();
       let options = '<option value="" disabled selected>Selecciona Modelo...</option>';
-      models.forEach(model => {
+
+      models.forEach((model) => {
         options += `<option value="${model}">${model}</option>`;
       });
+
       modelSelect.innerHTML = options;
       modelSelect.disabled = false;
     } else {
@@ -53,10 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 4. File Drag and Drop Logic
-  let uploadedFiles = [];
-
-  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
     fileDropZone.addEventListener(eventName, preventDefaults, false);
   });
 
@@ -65,43 +68,69 @@ document.addEventListener('DOMContentLoaded', () => {
     e.stopPropagation();
   }
 
-  ['dragenter', 'dragover'].forEach(eventName => {
+  ['dragenter', 'dragover'].forEach((eventName) => {
     fileDropZone.addEventListener(eventName, () => {
       fileDropZone.classList.add('dragover');
     }, false);
   });
 
-  ['dragleave', 'drop'].forEach(eventName => {
+  ['dragleave', 'drop'].forEach((eventName) => {
     fileDropZone.addEventListener(eventName, () => {
       fileDropZone.classList.remove('dragover');
     }, false);
   });
 
   fileDropZone.addEventListener('drop', handleDrop, false);
-  
-  // click directly on input inside dropzone
-  fileInput.addEventListener('change', function(e) {
+
+  fileInput.addEventListener('change', function onFileChange() {
     handleFiles(this.files);
   });
 
   function handleDrop(e) {
-    let dt = e.dataTransfer;
-    let files = dt.files;
-    handleFiles(files);
+    handleFiles(e.dataTransfer.files);
   }
 
   function handleFiles(files) {
-    ([...files]).forEach(file => {
+    const rejectedFiles = [];
+    let currentTotalBytes = getTotalFileSizeBytes();
+
+    [...files].forEach((file) => {
+      const ext = (file.name.split('.').pop() || '').toLowerCase();
+
+      if (!ALLOWED_FILE_EXTENSIONS.includes(ext)) {
+        rejectedFiles.push(`${file.name}: formato no permitido`);
+        return;
+      }
+
+      if (file.size > MAX_FILE_SIZE_BYTES) {
+        rejectedFiles.push(`${file.name}: supera 10 MB`);
+        return;
+      }
+
+      if (currentTotalBytes + file.size > MAX_TOTAL_FILES_BYTES) {
+        rejectedFiles.push(`${file.name}: supera el limite total de 15 MB`);
+        return;
+      }
+
       uploadedFiles.push(file);
+      currentTotalBytes += file.size;
     });
+
+    if (rejectedFiles.length) {
+      showSubmitError(`Algunos archivos no se han anadido: ${rejectedFiles.join(' | ')}`);
+    } else {
+      clearSubmitError();
+    }
+
+    fileInput.value = '';
     renderFileList();
   }
 
   function renderFileList() {
     fileList.innerHTML = '';
+
     uploadedFiles.forEach((file, index) => {
       const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
-      
       const fileEl = document.createElement('div');
       fileEl.className = 'file-item reveal active';
       fileEl.innerHTML = `
@@ -123,38 +152,157 @@ document.addEventListener('DOMContentLoaded', () => {
       fileList.appendChild(fileEl);
     });
 
-    // attach remove handlers
-    document.querySelectorAll('.file-remove').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const i = parseInt(this.getAttribute('data-index'));
-        uploadedFiles.splice(i, 1);
-        renderFileList(); // re-render
+    document.querySelectorAll('.file-remove').forEach((btn) => {
+      btn.addEventListener('click', function removeFile() {
+        const index = Number(this.getAttribute('data-index'));
+        uploadedFiles.splice(index, 1);
+        renderFileList();
       });
     });
   }
 
-  // 5. Form Submission (Demo)
-  const contactForm = document.getElementById('contactForm');
-  if(contactForm) {
-      contactForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          const submitBtn = contactForm.querySelector('button[type="submit"]');
-          const originalText = submitBtn.innerHTML;
-          submitBtn.innerHTML = 'Enviando...';
-          submitBtn.disabled = true;
+  function getTotalFileSizeBytes() {
+    return uploadedFiles.reduce((total, file) => total + file.size, 0);
+  }
 
-          // Simulando envío
-          setTimeout(() => {
-              contactForm.innerHTML = `
-                  <div style="text-align:center; padding: 2rem;">
-                      <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(16,185,129,0.1); color: var(--accent-emerald); display:flex; align-items:center; justify-content:center; margin: 0 auto 1.5rem;">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="30" height="30"><polyline points="20 6 9 17 4 12"/></svg>
-                      </div>
-                      <h3 style="font-size:1.5rem; margin-bottom: 1rem;">¡Mensaje Enviado!</h3>
-                      <p style="color:var(--text-muted)">Hemos recibido tu solicitud correctamente. Nos pondremos en contacto contigo lo antes posible para proceder con tu caso.</p>
-                  </div>
-              `;
-          }, 1500);
+  function fileToAttachmentPayload(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        const dataUrl = String(reader.result || '');
+        const commaPos = dataUrl.indexOf(',');
+        const contentBase64 = commaPos >= 0 ? dataUrl.slice(commaPos + 1) : '';
+
+        resolve({
+          name: file.name,
+          type: file.type || 'application/octet-stream',
+          sizeBytes: file.size,
+          sizeMB: Number((file.size / (1024 * 1024)).toFixed(2)),
+          contentBase64
+        });
+      };
+
+      reader.onerror = () => reject(new Error(`No se pudo leer el archivo: ${file.name}`));
+      reader.readAsDataURL(file);
+    });
+  }
+
+  async function buildPayload() {
+    const serviceSelect = document.getElementById('serviceType');
+    const selectedServiceText = serviceSelect.options[serviceSelect.selectedIndex]?.text || '';
+    const files = await Promise.all(uploadedFiles.map((file) => fileToAttachmentPayload(file)));
+
+    return {
+      source: 'web-contacto',
+      timestamp: new Date().toISOString(),
+      name: document.getElementById('name').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      carBrand: brandSelect.value,
+      carModel: modelSelect.value,
+      matricula: document.getElementById('matricula').value.trim(),
+      year: document.getElementById('year').value.trim(),
+      serviceType: serviceSelect.value,
+      serviceTypeLabel: selectedServiceText,
+      message: document.getElementById('message').value.trim(),
+      privacyAccepted: document.getElementById('privacy').checked,
+      files
+    };
+  }
+
+  async function sendToAppsScript(payload) {
+    if (APPS_SCRIPT_URL.includes('TU_DEPLOYMENT_ID')) {
+      throw new Error('Configura tu URL de Google Apps Script en contact.js');
+    }
+
+    const body = JSON.stringify(payload);
+
+    try {
+      const response = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8'
+        },
+        body
       });
+
+      if (!response.ok) {
+        throw new Error(`Error HTTP ${response.status}`);
+      }
+
+      const text = await response.text();
+      if (text) {
+        const parsed = JSON.parse(text);
+        if (parsed && parsed.ok === false) {
+          throw new Error(parsed.error || parsed.message || 'Error en Apps Script');
+        }
+      }
+    } catch (error) {
+      const maybeCorsIssue = error instanceof TypeError || String(error).includes('Failed to fetch');
+      if (!maybeCorsIssue) throw error;
+
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8'
+        },
+        body
+      });
+    }
+  }
+
+  function renderSuccessState() {
+    contactForm.innerHTML = `
+      <div style="text-align:center; padding: 2rem;">
+        <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(16,185,129,0.1); color: var(--accent-emerald); display:flex; align-items:center; justify-content:center; margin: 0 auto 1.5rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="30" height="30"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 style="font-size:1.5rem; margin-bottom: 1rem;">Solicitud enviada</h3>
+        <p style="color:var(--text-muted)">Hemos recibido tu solicitud correctamente y te responderemos lo antes posible.</p>
+      </div>
+    `;
+  }
+
+  function showSubmitError(message) {
+    let errorBox = document.getElementById('formErrorBox');
+    if (!errorBox) {
+      errorBox = document.createElement('div');
+      errorBox.id = 'formErrorBox';
+      errorBox.style.cssText = 'margin-top:1rem; padding:0.85rem 1rem; border-radius:10px; background:rgba(239,68,68,.12); border:1px solid rgba(239,68,68,.35); color:#fecaca; font-size:.9rem;';
+      contactForm.appendChild(errorBox);
+    }
+    errorBox.textContent = message;
+  }
+
+  function clearSubmitError() {
+    const errorBox = document.getElementById('formErrorBox');
+    if (errorBox) {
+      errorBox.remove();
+    }
+  }
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Enviando...';
+      submitBtn.disabled = true;
+
+      try {
+        clearSubmitError();
+        const payload = await buildPayload();
+        await sendToAppsScript(payload);
+        renderSuccessState();
+      } catch (error) {
+        console.error('Error enviando formulario:', error);
+        showSubmitError('No se pudo enviar en este momento. Revisa la URL del Apps Script o inténtalo de nuevo.');
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    });
   }
 });
