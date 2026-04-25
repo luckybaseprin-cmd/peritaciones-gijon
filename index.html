@@ -95,7 +95,15 @@
       display: flex; align-items: center; gap: 1rem;
       border-bottom: 1px solid var(--border-glass); flex-shrink: 0;
     }
-    .pdf-modal-header h4 { color: var(--text-main); font-size: 0.95rem; font-weight: 700; flex: 1; }
+    .pdf-modal-meta { flex: 1; min-width: 0; }
+    .pdf-modal-header h4 { color: var(--text-main); font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .pdf-modal-link {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      color: var(--accent-amber); text-decoration: none;
+      font-size: 0.8rem; font-weight: 700;
+      max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .pdf-modal-link:hover { color: #d97706; }
     .pdf-modal-close {
       background: rgba(255,255,255,0.08); border: 1px solid var(--border-glass);
       color: var(--text-main); width: 36px; height: 36px; border-radius: 8px;
@@ -438,7 +446,7 @@
           <div class="caso-body">
             <p>Vehículo adquirido en compraventa con graves focos de oxidación estructural intencionadamente disimulados bajo pintura y masilla. El informe pericial acreditó la preexistencia del daño.</p>
             <div class="caso-tags"><span class="caso-tag">Vicios ocultos</span><span class="caso-tag">Compraventa</span><span class="caso-tag">Oxidación</span></div>
-            <button onclick="abrirPDF('caso1','Daños Ocultos - Oxidación')" class="caso-pdf-btn"><i class="fas fa-file-pdf"></i> Ver informe pericial</button>
+            <button onclick="abrirPDF('caso1','daños ocultos-oxidación')" class="caso-pdf-btn"><i class="fas fa-file-pdf"></i> Ver informe pericial</button>
           </div>
         </div>
 
@@ -455,7 +463,7 @@
           <div class="caso-body">
             <p>Vehículo diésel con válvula EGR anulada fraudulentamente antes de la venta. La manipulación no declarada provoca daños mecánicos progresivos y puede causar la denegación de la ITV.</p>
             <div class="caso-tags"><span class="caso-tag">EGR anulada</span><span class="caso-tag">Vicios ocultos</span><span class="caso-tag">Motor diésel</span></div>
-            <button onclick="abrirPDF('caso2','Daños Ocultos - EGR Anulada')" class="caso-pdf-btn"><i class="fas fa-file-pdf"></i> Ver informe pericial</button>
+            <button onclick="abrirPDF('caso2','daños ocultos-EGR anulada')" class="caso-pdf-btn"><i class="fas fa-file-pdf"></i> Ver informe pericial</button>
           </div>
         </div>
 
@@ -851,7 +859,12 @@
   <div class="pdf-modal" id="pdfModal" onclick="if(event.target===this)cerrarPDF()">
     <div class="pdf-modal-inner">
       <div class="pdf-modal-header">
-        <h4 id="pdfTitle">Informe Pericial</h4>
+        <div class="pdf-modal-meta">
+          <h4 id="pdfTitle">Informe Pericial</h4>
+          <a id="pdfLink" class="pdf-modal-link" href="#" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-link"></i> Enlace PDF
+          </a>
+        </div>
         <button class="pdf-modal-close" onclick="cerrarPDF()"><i class="fas fa-times"></i></button>
       </div>
       <iframe id="pdfFrame" class="pdf-modal-frame" title="Informe Pericial" oncontextmenu="return false;"></iframe>
@@ -877,14 +890,19 @@
     const pdfModal = document.getElementById('pdfModal');
     const pdfFrame = document.getElementById('pdfFrame');
     const pdfTitle = document.getElementById('pdfTitle');
+    const pdfLink = document.getElementById('pdfLink');
 
     function abrirPDF(id, titulo) {
       const ruta = PDF_RUTAS[id];
       if (!ruta) return;
+      const rutaCodificada = encodeURI(ruta);
+      const urlVisor = rutaCodificada + '#toolbar=0&navpanes=0&scrollbar=1&statusbar=0&messages=0';
 
       pdfTitle.textContent = titulo;
+      pdfLink.href = urlVisor;
+      pdfLink.title = ruta;
       // Oculta controles del visor para minimizar opciones de descarga/impresión.
-      pdfFrame.src = encodeURI(ruta) + '#toolbar=0&navpanes=0&scrollbar=1&statusbar=0&messages=0';
+      pdfFrame.src = urlVisor;
       pdfModal.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
@@ -892,6 +910,8 @@
     function cerrarPDF() {
       pdfModal.classList.remove('open');
       pdfFrame.src = '';
+      pdfLink.href = '#';
+      pdfLink.title = '';
       document.body.style.overflow = '';
     }
 
