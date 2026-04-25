@@ -854,7 +854,7 @@
         <h4 id="pdfTitle">Informe Pericial</h4>
         <button class="pdf-modal-close" onclick="cerrarPDF()"><i class="fas fa-times"></i></button>
       </div>
-      <iframe id="pdfFrame" class="pdf-modal-frame" title="Informe Pericial"></iframe>
+      <iframe id="pdfFrame" class="pdf-modal-frame" title="Informe Pericial" oncontextmenu="return false;"></iframe>
     </div>
   </div>
 
@@ -862,34 +862,50 @@
   <a href="https://wa.me/34652933992" class="wa-btn" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
   <script>
-    // Rutas de los PDFs — carpeta pdfs/ junto al index.html
+    // Rutas reales de los PDFs en la raíz del proyecto
     const PDF_RUTAS = {
-      'caso1': 'pdfs/dan_os_ocultos-Oxidacio_n.pdf',
-      'caso2': 'pdfs/dan_os_cocultos-EGR_anulada.pdf',
-      'caso3': 'pdfs/reclamacion_a_Compan_ia_de_Seguros_dan_os_por_caida_en_parado.pdf',
-      'caso4': 'pdfs/reclamacion_a_Compraventa_rotura_de_Piston.pdf',
-      'caso5': 'pdfs/reclamacio_n_dan_os_rehusados_Compan_ia_de_Seguros.pdf',
-      'caso6': 'pdfs/valor_venal_y_mercado_.pdf',
-      'caso7': 'pdfs/Valoracion_de_dan_os_camio_n.pdf',
-      'caso8': 'pdfs/valoracion_perdida_total.pdf'
+      'caso1': 'daños ocultos-Oxidación.pdf',
+      'caso2': 'daños cocultos-EGR anulada.pdf',
+      'caso3': 'reclamacion a Compañia de Seguros daños por caida en parado.pdf',
+      'caso4': 'reclamacion a Compraventa rotura de Piston.pdf',
+      'caso5': 'reclamación daños rehusados Compañia de Seguros.pdf',
+      'caso6': 'valor venal y mercado).pdf',
+      'caso7': 'Valoracion de daños camión.pdf',
+      'caso8': 'valoracion perdida total.pdf'
     };
+
+    const pdfModal = document.getElementById('pdfModal');
+    const pdfFrame = document.getElementById('pdfFrame');
+    const pdfTitle = document.getElementById('pdfTitle');
 
     function abrirPDF(id, titulo) {
       const ruta = PDF_RUTAS[id];
-      document.getElementById('pdfTitle').textContent = titulo;
-      // #toolbar=0 evita el botón de descarga nativo del visor PDF del navegador
-      document.getElementById('pdfFrame').src = ruta + '#toolbar=0&navpanes=0&scrollbar=1';
-      document.getElementById('pdfModal').classList.add('open');
+      if (!ruta) return;
+
+      pdfTitle.textContent = titulo;
+      // Oculta controles del visor para minimizar opciones de descarga/impresión.
+      pdfFrame.src = encodeURI(ruta) + '#toolbar=0&navpanes=0&scrollbar=1&statusbar=0&messages=0';
+      pdfModal.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
 
     function cerrarPDF() {
-      document.getElementById('pdfModal').classList.remove('open');
-      document.getElementById('pdfFrame').src = '';
+      pdfModal.classList.remove('open');
+      pdfFrame.src = '';
       document.body.style.overflow = '';
     }
 
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarPDF(); });
+    // Bloquea menú contextual y atajos de guardar/imprimir mientras el modal está abierto.
+    pdfModal.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') cerrarPDF();
+
+      const modalAbierto = pdfModal.classList.contains('open');
+      const tecla = e.key.toLowerCase();
+      if (modalAbierto && (e.ctrlKey || e.metaKey) && (tecla === 's' || tecla === 'p')) {
+        e.preventDefault();
+      }
+    });
   </script>
 
   <script src="main.js"></script>
