@@ -3,20 +3,172 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gijón Peritaciones | Peritos de Vehículos en Gijón</title>
-  <meta name="description" content="Gijón Peritaciones - Expertos en peritaje de vehículos en Gijón. Tasaciones oficiales, peritaciones de accidentes, valoraciones para seguros. Más de 15 años de experiencia.">
-  <meta name="keywords" content="perito de coches Gijón, peritaje vehículos Asturias, tasación coches, peritaciones accidentes, valoración vehículos Gijón">
-  <meta property="og:title" content="Gijón Peritaciones | Peritos de Vehículos en Gijón">
-  <meta property="og:description" content="Expertos en peritaje y tasación de vehículos en Gijón. Servicio profesional, rápido y de confianza.">
+  <title>Gijón Peritaciones S.L. | Peritos de Automóviles en Gijón</title>
+  <meta name="description" content="Gijón Peritaciones S.L. — Peritos de seguros de automóviles en Gijón, Asturias. +20 años, +10.000 peritaciones. Siniestros, valor venal, perito judicial, videoperitación.">
+  <meta name="keywords" content="perito seguros automoviles Gijón, peritaciones Asturias, valor venal, siniestros, informe pericial, perito judicial, videoperitación">
+  <meta property="og:title" content="Gijón Peritaciones S.L. | Peritos de Automóviles en Gijón">
+  <meta property="og:description" content="Más de 20 años y +10.000 peritaciones en Asturias. Titulado VA · DGS · APCAS-FIEA.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="animations.css">
+
+  <style>
+    /* ── CASOS REALES ─────────────────────────────────────────────── */
+    .casos-section { background: var(--bg-secondary); }
+
+    .casos-stats-bar {
+      display: flex; gap: 1.5rem; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 3rem;
+    }
+    .caso-stat-pill {
+      background: var(--bg-glass-heavy); border: 1px solid var(--border-glass);
+      backdrop-filter: blur(10px); border-radius: 50px;
+      padding: 0.6rem 1.4rem; font-size: 0.85rem; font-weight: 700;
+      display: flex; align-items: center; gap: 0.5rem; color: var(--text-main);
+    }
+    .caso-stat-pill i { color: var(--accent-amber); }
+    .caso-stat-pill span { color: var(--accent-amber); }
+
+    .casos-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem; max-width: 1200px; margin: 0 auto;
+    }
+    .caso-card {
+      background: var(--bg-glass); border: 1px solid var(--border-glass);
+      border-radius: var(--radius-lg); overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .caso-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+    .caso-header {
+      background: linear-gradient(135deg, rgba(59,130,246,0.2) 0%, rgba(15,23,42,0.6) 100%);
+      border-bottom: 1px solid var(--border-glass);
+      padding: 1.1rem 1.4rem; display: flex; align-items: center; gap: 0.9rem;
+    }
+    .caso-num {
+      width: 34px; height: 34px; background: var(--gradient-main);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 900; color: #fff; flex-shrink: 0;
+    }
+    .caso-header-txt { flex: 1; }
+    .caso-header-txt h3 { color: var(--text-main); font-size: 0.9rem; font-weight: 700; margin-bottom: 2px; }
+    .caso-header-txt .caso-tipo { color: var(--text-muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; }
+    .caso-badge { padding: 4px 10px; border-radius: 50px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; flex-shrink: 0; }
+    .caso-badge.ganado { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
+    .caso-badge.informe { background: rgba(245,158,11,0.15); color: var(--accent-amber); border: 1px solid rgba(245,158,11,0.3); }
+    .caso-body { padding: 1.25rem 1.4rem; }
+    .caso-body p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem; }
+    .caso-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+    .caso-tag {
+      background: rgba(59,130,246,0.08); color: var(--accent-blue);
+      border-radius: 50px; padding: 3px 10px; font-size: 0.72rem; font-weight: 600;
+      border: 1px solid rgba(59,130,246,0.2);
+    }
+    .caso-pdf-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--accent-amber); font-size: 0.82rem; font-weight: 700;
+      text-decoration: none; background: none; border: none; padding: 0;
+      cursor: pointer; font-family: inherit; transition: color 0.2s;
+    }
+    .caso-pdf-btn:hover { color: #d97706; }
+    .caso-pdf-btn i { font-size: 0.95rem; }
+
+    /* ── MODAL PDF ────────────────────────────────────────────────── */
+    .pdf-modal {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(5, 10, 25, 0.92); align-items: center;
+      justify-content: center; padding: 16px; backdrop-filter: blur(6px);
+    }
+    .pdf-modal.open { display: flex; }
+    .pdf-modal-inner {
+      background: var(--bg-secondary); border: 1px solid var(--border-glass);
+      border-radius: var(--radius-lg); overflow: hidden;
+      width: 100%; max-width: 920px; height: 90vh;
+      display: flex; flex-direction: column;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.7);
+    }
+    .pdf-modal-header {
+      background: var(--bg-glass-heavy); padding: 1rem 1.25rem;
+      display: flex; align-items: center; gap: 1rem;
+      border-bottom: 1px solid var(--border-glass); flex-shrink: 0;
+    }
+    .pdf-modal-header h4 { color: var(--text-main); font-size: 0.95rem; font-weight: 700; flex: 1; }
+    .pdf-modal-close {
+      background: rgba(255,255,255,0.08); border: 1px solid var(--border-glass);
+      color: var(--text-main); width: 36px; height: 36px; border-radius: 8px;
+      cursor: pointer; font-size: 1rem; display: flex; align-items: center;
+      justify-content: center; transition: background 0.2s;
+    }
+    .pdf-modal-close:hover { background: rgba(255,255,255,0.15); }
+    .pdf-modal-frame { flex: 1; border: 0; width: 100%; display: block; background: #f5f5f5; }
+
+    /* ── ACREDITACIÓN BOX ────────────────────────────────────────── */
+    .acred-box {
+      background: linear-gradient(135deg, rgba(59,130,246,0.15) 0%, rgba(15,23,42,0.5) 100%);
+      border: 1px solid rgba(59,130,246,0.25); border-left: 4px solid var(--accent-amber);
+      border-radius: var(--radius-md); padding: 1.25rem 1.5rem; margin-bottom: 1.75rem;
+    }
+    .acred-box .acred-label { color: var(--text-muted); font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0.6rem; }
+    .acred-box .acred-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; color: var(--text-main); font-size: 0.9rem; font-weight: 700; }
+    .acred-box .acred-row i { color: var(--accent-amber); }
+    .acred-box .acred-sub { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; }
+
+    /* ── BANNER ABOGADO ──────────────────────────────────────────── */
+    .banner-abogado {
+      background: linear-gradient(135deg, rgba(59,130,246,0.2) 0%, rgba(245,158,11,0.1) 100%);
+      border: 1px solid var(--border-glass); border-radius: var(--radius-lg);
+      padding: 2.5rem 3rem; max-width: 1100px; margin: 3rem auto 0;
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+    }
+    .banner-abogado .ba-icon {
+      width: 68px; height: 68px; background: var(--gradient-main);
+      border-radius: var(--radius-md); display: flex; align-items: center;
+      justify-content: center; font-size: 1.8rem; color: #fff; flex-shrink: 0;
+    }
+    .banner-abogado .ba-texto { flex: 1; }
+    .banner-abogado .ba-texto h3 { color: var(--text-main); font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; font-family: var(--font-display); }
+    .banner-abogado .ba-texto p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.65; }
+
+    /* ── COBERTURA ───────────────────────────────────────────────── */
+    .cobertura-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
+    .cobertura-map { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-glass); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+    .cobertura-map iframe { width: 100%; height: 360px; border: 0; display: block; }
+    .zona-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+    .zona-tag {
+      background: var(--bg-glass); border: 1px solid var(--border-glass);
+      color: var(--text-secondary); border-radius: 50px;
+      padding: 6px 16px; font-size: 0.82rem; font-weight: 600;
+    }
+
+    /* ── VIDEOPERIT TAG ──────────────────────────────────────────── */
+    .tag-nuevo {
+      display: inline-block; background: var(--gradient-main); color: #fff;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 50px;
+      margin-left: 6px; vertical-align: middle;
+    }
+
+    /* ── WA FLOTANTE ─────────────────────────────────────────────── */
+    .wa-btn {
+      position: fixed; bottom: 28px; right: 28px; z-index: 998;
+      background: #25D366; color: #fff; width: 58px; height: 58px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+      text-decoration: none; transition: transform 0.2s;
+    }
+    .wa-btn:hover { transform: scale(1.1); }
+
+    @media (max-width: 768px) {
+      .cobertura-grid { grid-template-columns: 1fr; }
+      .banner-abogado { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+      .banner-abogado .ba-icon { margin: 0 auto; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Partículas de fondo -->
   <div class="particles" id="particles"></div>
 
   <!-- Header -->
@@ -29,18 +181,10 @@
             <path d="M8 24 L12 16 L28 16 L32 24 L28 26 L12 26 Z" fill="url(#logoGrad)"/>
             <circle cx="14" cy="26" r="3" fill="#0a0f1e" stroke="url(#logoGrad)" stroke-width="1.5"/>
             <circle cx="26" cy="26" r="3" fill="#0a0f1e" stroke="url(#logoGrad)" stroke-width="1.5"/>
-            <defs>
-              <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40">
-                <stop offset="0%" stop-color="#3b82f6"/>
-                <stop offset="100%" stop-color="#f59e0b"/>
-              </linearGradient>
-            </defs>
+            <defs><linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient></defs>
           </svg>
         </div>
-        <div class="logo-text">
-          <span class="logo-main">Gijón</span>
-          <span class="logo-sub">Peritaciones</span>
-        </div>
+        <div class="logo-text"><span class="logo-main">Gijón</span><span class="logo-sub">Peritaciones</span></div>
       </a>
 
       <ul class="nav-links" id="navLinks">
@@ -52,21 +196,17 @@
       </ul>
 
       <div class="nav-actions">
-        <a href="tel:+34985000000" class="btn-phone">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-          </svg>
-          985 000 000
+        <a href="tel:+34652933992" class="btn-phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          652 933 992
         </a>
         <a href="contacto.html" class="btn-primary">Solicitar Peritación</a>
-        <button class="hamburger" id="hamburger" aria-label="Menú">
-          <span></span><span></span><span></span>
-        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
       </div>
     </nav>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero" id="hero">
     <div class="hero-bg">
       <img src="hero_car.png" alt="Gijón Peritaciones - Perito de vehículos" class="hero-img">
@@ -75,47 +215,40 @@
     <div class="hero-content container">
       <div class="hero-badge reveal">
         <span class="badge-dot"></span>
-        Peritos Oficiales Colegiados · Gijón, Asturias
+        Perito de Seguros · Titulado VA · DGS · APCAS-FIEA · Gijón, Asturias
       </div>
       <h1 class="hero-title reveal">
-        Peritaje de Vehículos<br>
-        <span class="gradient-text">Profesional y de Confianza</span>
+        Tu perito de confianza<br>
+        <span class="gradient-text">en Gijón y Asturias</span>
       </h1>
       <p class="hero-desc reveal">
-        Más de 15 años avalando la verdad sobre el valor real de los vehículos. 
-        Tasaciones periciales, accidentes, seguros y compraventa en Gijón y toda Asturias.
+        Informes periciales rigurosos, valoraciones con tablas oficiales y testigos reales de mercado.
+        Más de 20 años y más de 10.000 peritaciones avalando que siempre cobres lo que te corresponde.
       </p>
       <div class="hero-actions reveal">
-        <a href="contacto.html" class="btn-primary btn-lg">
-          Solicitar Peritación
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-          </svg>
+        <a href="tel:+34652933992" class="btn-primary btn-lg">
+          <i class="fas fa-phone"></i> Llamar ahora
         </a>
         <a href="servicios.html" class="btn-outline btn-lg">Ver Servicios</a>
       </div>
       <div class="hero-stats reveal">
         <div class="stat">
-          <span class="stat-number" data-target="2500">0</span><span>+</span>
+          <span class="stat-number" data-target="10000">0</span><span>+</span>
           <span class="stat-label">Peritaciones</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
-          <span class="stat-number" data-target="15">0</span><span>+</span>
+          <span class="stat-number" data-target="20">0</span><span>+</span>
           <span class="stat-label">Años Experiencia</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
-          <span class="stat-number" data-target="98">0</span><span>%</span>
-          <span class="stat-label">Clientes Satisfechos</span>
+          <span class="stat-number" data-target="90">0</span><span>%</span>
+          <span class="stat-label">Casos Ganados</span>
         </div>
       </div>
     </div>
-    <div class="hero-scroll">
-      <div class="scroll-indicator">
-        <div class="scroll-dot"></div>
-      </div>
-    </div>
+    <div class="hero-scroll"><div class="scroll-indicator"><div class="scroll-dot"></div></div></div>
   </section>
 
   <!-- Trust Bar -->
@@ -124,197 +257,70 @@
       <div class="trust-items">
         <div class="trust-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span>Peritos Colegiados</span>
+          <span>Titulado VA · DGS</span>
         </div>
         <div class="trust-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span>Informe en 24-48h</span>
+          <span>Informe según complejidad</span>
         </div>
         <div class="trust-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          <span>+2500 Clientes</span>
+          <i class="fas fa-video" style="font-size:1.1rem; color:var(--accent-amber)"></i>
+          <span>Videoperitación disponible</span>
         </div>
         <div class="trust-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>Válido en Juzgados</span>
+          <span>90% casos ganados</span>
         </div>
         <div class="trust-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6s4-3 11-3 11 3 11 3v3s-4 3-11 3S1 9 1 9V6z"/><path d="M1 15s4-3 11-3 11 3 11 3v3s-4 3-11 3S1 18 1 18v-3z"/></svg>
-          <span>Toda Asturias</span>
+          <i class="fas fa-users" style="font-size:1.1rem; color:var(--accent-amber)"></i>
+          <span>APCAS · FIEA</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Servicios Section -->
-  <section class="section services-section" id="servicios">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-tag reveal">Nuestros Servicios</div>
-        <h2 class="section-title reveal">Soluciones Periciales<br><span class="gradient-text">Completas y Profesionales</span></h2>
-        <p class="section-desc reveal">Ofrecemos una gama completa de servicios de peritaje vehicular adaptados a cada situación.</p>
-      </div>
-      <div class="services-grid">
-        <article class="service-card reveal" onclick="window.location='servicios.html#accidentes'">
-          <div class="service-icon service-icon--blue">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M17.5 5H2.5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h15a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1z"/>
-              <path d="M5.5 15v3M13.5 15v3M2.5 10h15"/>
-              <path d="M19.5 9l2 2-2 2"/>
-            </svg>
-          </div>
-          <h3>Peritación de Accidentes</h3>
-          <p>Valoración objetiva de daños tras accidentes de tráfico. Informe pericial completo con validez legal para reclamaciones a aseguradoras.</p>
-          <div class="service-link">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        </article>
-
-        <article class="service-card reveal" onclick="window.location='servicios.html#tasacion'">
-          <div class="service-icon service-icon--amber">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-            </svg>
-          </div>
-          <h3>Tasación de Vehículos</h3>
-          <p>Determinación del valor real de mercado de cualquier vehículo. Imprescindible para compraventas, herencias, divorcios o garantías bancarias.</p>
-          <div class="service-link">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        </article>
-
-        <article class="service-card reveal" onclick="window.location='servicios.html#seguros'">
-          <div class="service-icon service-icon--green">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-          </div>
-          <h3>Peritación para Seguros</h3>
-          <p>Asistencia técnica independiente ante compañías aseguradoras. Garantizamos que recibes la compensación justa que te corresponde.</p>
-          <div class="service-link">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        </article>
-
-        <article class="service-card reveal" onclick="window.location='servicios.html#judicial'">
-          <div class="service-icon service-icon--purple">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>
-            </svg>
-          </div>
-          <h3>Perito Judicial</h3>
-          <p>Informes periciales con plena validez ante juzgados y tribunales. Perito inscrito en el Colegio de Ingenieros de Asturias.</p>
-          <div class="service-link">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        </article>
-
-        <article class="service-card reveal" onclick="window.location='servicios.html#precompra'">
-          <div class="service-icon service-icon--cyan">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-          </div>
-          <h3>Inspección Precompra</h3>
-          <p>Antes de comprar un vehículo de segunda mano, conoce su estado real. Detectamos fallos ocultos, kilometrajes manipulados y más.</p>
-          <div class="service-link">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        </article>
-
-        <article class="service-card reveal" onclick="window.location='servicios.html#robo'">
-          <div class="service-icon service-icon--red">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-              <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-            </svg>
-          </div>
-          <h3>Daños por Robo o Vandalismo</h3>
-          <p>Cuantificación objetiva de daños causados por robo, intento de robo o actos vandálicos. Informe para la aseguradora y denuncia policial.</p>
-          <div class="service-link">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- proceso Section -->
-  <section class="section process-section">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-tag reveal">Cómo Trabajamos</div>
-        <h2 class="section-title reveal">Proceso <span class="gradient-text">Sencillo y Transparente</span></h2>
-      </div>
-      <div class="process-timeline">
-        <div class="process-step reveal">
-          <div class="step-number">01</div>
-          <div class="step-content">
-            <h3>Contacta con Nosotros</h3>
-            <p>Llámanos o rellena el formulario online. Te atendemos de lunes a viernes de 9:00 a 19:00.</p>
-          </div>
-        </div>
-        <div class="process-connector"></div>
-        <div class="process-step reveal">
-          <div class="step-number">02</div>
-          <div class="step-content">
-            <h3>Inspección del Vehículo</h3>
-            <p>Nuestro perito se desplaza a la ubicación del vehículo o lo inspeccionamos en nuestras instalaciones.</p>
-          </div>
-        </div>
-        <div class="process-connector"></div>
-        <div class="process-step reveal">
-          <div class="step-number">03</div>
-          <div class="step-content">
-            <h3>Elaboración del Informe</h3>
-            <p>Preparamos un informe pericial detallado con fotografías, valoraciones y conclusiones técnicas.</p>
-          </div>
-        </div>
-        <div class="process-connector"></div>
-        <div class="process-step reveal">
-          <div class="step-number">04</div>
-          <div class="step-content">
-            <h3>Entrega en 24-48 Horas</h3>
-            <p>Recibes el informe firmado y sellado, con plena validez legal, listo para presentar donde necesites.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Us Section -->
-  <section class="section why-section">
+  <!-- Quiénes Somos -->
+  <section class="section why-section" id="quienes">
     <div class="container">
       <div class="why-grid">
         <div class="why-image reveal">
-          <img src="service_inspection.png" alt="Perito inspeccionando vehículo" loading="lazy">
+          <img src="hero_car.png" alt="Perito inspeccionando vehículo" loading="lazy" style="border-radius:var(--radius-lg); border:1px solid var(--border-glass);">
           <div class="why-badge-float">
             <div class="badge-circle">
-              <span class="badge-num">15+</span>
+              <span class="badge-num">20+</span>
               <span class="badge-label">Años</span>
             </div>
           </div>
         </div>
         <div class="why-content">
-          <div class="section-tag reveal">¿Por Qué Elegirnos?</div>
-          <h2 class="section-title reveal">Experiencia y <span class="gradient-text">Rigor Técnico</span></h2>
-          <p class="why-desc reveal">En Gijón Peritaciones somos peritos independientes, sin vinculación con ninguna compañía aseguradora. Eso significa que trabajamos exclusivamente para ti, con total objetividad e imparcialidad.</p>
+          <div class="section-tag reveal">Quiénes Somos</div>
+          <h2 class="section-title reveal">Más de 20 años de<br><span class="gradient-text">experiencia técnica</span></h2>
+
+          <div class="acred-box reveal">
+            <div class="acred-label">Acreditación oficial</div>
+            <div class="acred-row"><i class="fas fa-id-badge"></i> Perito de Seguros de Automóviles</div>
+            <div class="acred-sub">Titulado en VA con el V.º B.º de la <strong style="color:var(--text-main)">Dirección General de Seguros</strong></div>
+            <div class="acred-sub"><i class="fas fa-users" style="color:var(--accent-amber); margin-right:4px"></i> Asociado <strong style="color:var(--text-main)">APCAS · FIEA</strong></div>
+          </div>
+
+          <p class="why-desc reveal">Somos <strong>Gijón Peritaciones S.L.</strong>, gabinete especializado en peritación de automóviles con más de <strong>20 años de trayectoria</strong> y más de <strong>10.000 peritaciones</strong> realizadas en Asturias. Utilizamos <strong>tablas oficiales</strong> respaldadas con <strong>testigos reales de vehículos similares</strong> para determinar el valor venal y el valor de mercado real con total rigor.</p>
+
           <ul class="why-list">
             <li class="reveal">
               <div class="why-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <div>
-                <strong>Independencia total</strong>
-                <span>Sin ningún vínculo con aseguradoras. Solo trabajamos para nuestros clientes.</span>
-              </div>
+              <div><strong>Titulado VA · DGS · APCAS-FIEA</strong><span>Acreditación oficial de la Dirección General de Seguros.</span></div>
             </li>
             <li class="reveal">
               <div class="why-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <div>
-                <strong>Peritos colegiados</strong>
-                <span>Inscritos en el Colegio Oficial. Informes con plena validez judicial.</span>
-              </div>
+              <div><strong>Tablas oficiales + testigos reales</strong><span>Valor venal y de mercado con rigor total y fundamento documental.</span></div>
             </li>
             <li class="reveal">
               <div class="why-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <div>
-                <strong>Tecnología avanzada</strong>
-                <span>Usamos herramientas y software de valoración homologados a nivel europeo.</span>
-              </div>
+              <div><strong>Peritación presencial y por vídeo</strong><span>Nos desplazamos o peritamos por videollamada, sin pérdida de rigor.</span></div>
             </li>
             <li class="reveal">
               <div class="why-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <div>
-                <strong>Cobertura en Asturias</strong>
-                <span>Nos desplazamos a cualquier punto de Asturias sin coste adicional en el área de Gijón.</span>
-              </div>
+              <div><strong>Abogado a tu disposición</strong><span>Si no tienes abogado te ponemos en contacto con uno especializado, sin compromiso.</span></div>
             </li>
           </ul>
           <a href="nosotros.html" class="btn-primary reveal">Conoce nuestro equipo</a>
@@ -323,8 +329,356 @@
     </div>
   </section>
 
+  <!-- Servicios -->
+  <section class="section services-section" id="servicios">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag reveal">Nuestros Servicios</div>
+        <h2 class="section-title reveal">¿En qué podemos <span class="gradient-text">ayudarte?</span></h2>
+        <p class="section-desc reveal">Cubrimos todas las necesidades de peritación del automóvil, desde el siniestro hasta el informe judicial.</p>
+      </div>
+      <div class="services-grid">
+
+        <article class="service-card reveal" onclick="window.location='servicios.html#accidentes'">
+          <div class="service-icon service-icon--blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.5 5H2.5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h15a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1z"/><path d="M5.5 15v3M13.5 15v3M2.5 10h15"/><path d="M19.5 9l2 2-2 2"/></svg>
+          </div>
+          <h3>Peritación de Siniestros</h3>
+          <p>Evaluación técnica de los daños tras un accidente. Determinamos el alcance real y el coste exacto de reparación para tu reclamación.</p>
+          <div class="service-link">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </article>
+
+        <article class="service-card reveal" onclick="window.location='servicios.html#tasacion'">
+          <div class="service-icon service-icon--amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>Valor Venal y de Mercado</h3>
+          <p>Calculamos el <strong>valor venal</strong> y el <strong>valor real de mercado</strong> con tablas oficiales, respaldadas con testigos reales de vehículos similares.</p>
+          <div class="service-link">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </article>
+
+        <article class="service-card reveal" onclick="window.location='servicios.html#seguros'">
+          <div class="service-icon service-icon--green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Perito Contradictorio / Judicial</h3>
+          <p>¿Tu aseguradora ha valorado a la baja los daños? Somos tu contraparte técnica en litigios. Actuamos vía art. 38 Ley Contrato de Seguro.</p>
+          <div class="service-link">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </article>
+
+        <article class="service-card reveal" onclick="window.location='servicios.html#precompra'">
+          <div class="service-icon service-icon--cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3>Inspección Precompraventa</h3>
+          <p>Inspeccionamos el estado real del vehículo: historial de daños, reparaciones no declaradas, mecánica y diagnóstico OBD antes de la compra.</p>
+          <div class="service-link">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </article>
+
+        <article class="service-card reveal" onclick="window.location='servicios.html#judicial'">
+          <div class="service-icon service-icon--purple">
+            <i class="fas fa-video" style="font-size:1.4rem"></i>
+          </div>
+          <h3>Videoperitación <span class="tag-nuevo">Nuevo</span></h3>
+          <p>Peritación a distancia mediante videollamada. Sin desplazamientos, con el mismo rigor técnico. Disponible para toda España.</p>
+          <div class="service-link">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </article>
+
+        <article class="service-card reveal" onclick="window.location='servicios.html#robo'">
+          <div class="service-icon service-icon--red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <h3>Daños y Vicios Ocultos</h3>
+          <p>Detectamos reparaciones previas disimuladas, daños estructurales no declarados y fallos mecánicos latentes. Informes para reclamación.</p>
+          <div class="service-link">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </article>
+
+      </div>
+
+      <!-- Banner abogado -->
+      <div class="banner-abogado reveal">
+        <div class="ba-icon"><i class="fas fa-gavel"></i></div>
+        <div class="ba-texto">
+          <h3>¿No tienes abogado? Nosotros te proporcionamos uno</h3>
+          <p>Si necesitas asesoramiento legal y no dispones de abogado, te ponemos en contacto con profesionales especializados <strong>sin ningún compromiso</strong>.</p>
+        </div>
+        <a href="tel:+34652933992" class="btn-primary">
+          <i class="fas fa-phone"></i> Consultar gratis
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Casos Reales -->
+  <section class="section casos-section" id="casos">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag reveal">Experiencia demostrada</div>
+        <h2 class="section-title reveal">Casos Reales <span class="gradient-text">Resueltos</span></h2>
+        <p class="section-desc reveal">Más de 10.000 peritaciones avalan nuestra trayectoria. El 90% de los casos llevados a juicio han sido resueltos a favor del cliente.</p>
+      </div>
+
+      <div class="casos-stats-bar reveal">
+        <div class="caso-stat-pill"><i class="fas fa-trophy"></i><span>90%</span>&nbsp;casos ganados en el juzgado</div>
+        <div class="caso-stat-pill"><i class="fas fa-folder-open"></i><span>+10.000</span>&nbsp;peritaciones realizadas</div>
+        <div class="caso-stat-pill"><i class="fas fa-gavel"></i><span>+20</span>&nbsp;años de experiencia judicial</div>
+      </div>
+
+      <div class="casos-grid">
+        <!-- Caso 1 -->
+        <div class="caso-card reveal">
+          <div class="caso-header">
+            <div class="caso-num">1</div>
+            <div class="caso-header-txt">
+              <h3>Daños ocultos — Oxidación</h3>
+              <div class="caso-tipo">Vicio oculto en compraventa</div>
+            </div>
+            <div class="caso-badge ganado">✓ Ganado</div>
+          </div>
+          <div class="caso-body">
+            <p>Vehículo adquirido en compraventa con graves focos de oxidación estructural intencionadamente disimulados bajo pintura y masilla. El informe pericial acreditó la preexistencia del daño.</p>
+            <div class="caso-tags"><span class="caso-tag">Vicios ocultos</span><span class="caso-tag">Compraventa</span><span class="caso-tag">Oxidación</span></div>
+            <button onclick="abrirPDF('caso1','Daños Ocultos - Oxidación')" class="caso-pdf-btn"><i class="fas fa-file-pdf"></i> Ver informe pericial</button>
+          </div>
+        </div>
+
+        <!-- Caso 2 -->
+        <div class="caso-card reveal">
+          <div class="caso-header">
+            <div class="caso-num">2</div>
+            <div class="caso-header-txt">
+              <h3>Daños ocultos — EGR anulada</h3>
+              <div class="caso-tipo">Manipulación técnica fraudulenta</div>
+            </div>
+            <div class="caso-badge ganado">✓ Ganado</div>
+          </div>
+          <div class="caso-body">
+            <p>Vehículo diésel con válvula EGR anulada fraudulentamente antes de la venta. La manipulación no declarada provoca daños mecánicos progresivos y puede causar la denegación de la ITV.</p>
+            <div class="caso-tags"><span class="caso-tag">EGR anulada</span><span class="caso-tag">Vicios ocultos</span><span class="caso-tag">Motor diésel</span></div>
+            <button onclick="abrirPDF('caso2','Daños Ocultos - EGR Anulada')" class="caso-pdf-btn"><i class="fas fa-file-pdf"></i> Ver informe pericial</button>
+          </div>
+        </div>
+
+        <!-- Caso 3 -->
+        <div class="caso-card reveal">
+          <div class="caso-header">
+            <div class="caso-num">3</div>
+            <div class="caso-header-txt">
+              <h3>Daños por caída en parado</h3>
+              <div class="caso-tipo">Reclamación a compañía de seguros</div>
+            </div>
+            <div class="caso-badge ganado">✓ Ganado</div>
+          </div>
+          <div class="caso-body">
+            <p>Moto Suzuki dañada por el impacto de un camión mientras estaba estacionada. La aseguradora minimizó los daños. El informe contradictorio acreditó la cuantía real incluyendo daños diferenciados por origen.</p>
+            <div class="caso-tags"><span class="caso-tag">Siniestro</span><span class="caso-tag">Perito contradictorio</span><span class="caso-tag">Aseguradora</span></div>
+            <button onclick="abrirPDF('caso3','Daños por Caída en Parado')" class="caso-pdf-btn"><i class="fas fa-file-pdf"></i> Ver informe pericial</button>
+          </div>
+        </div>
+
+        <!-- Caso 4 -->
+        <div class="caso-card reveal">
+          <div class="caso-header">
+            <div class="caso-num">4</div>
+            <div class="caso-header-txt">
+              <h3>Rotura de pistón tras compraventa</h3>
+              <div class="caso-tipo">Reclamación a compraventa</div>
+            </div>
+            <div class="caso-badge ganado">✓ Ganado</div>
+          </div>
+          <div class="caso-body">
+            <p>Rotura de pistón detectada poco después de adquirir el vehículo. El informe pericial demostró que el daño era preexistente a la compraventa, obligando al vendedor a asumir la reparación del motor.</p>
+            <div class="caso-tags"><span class="caso-tag">Motor</span><span class="caso-tag">Rotura pistón</span><span class="caso-tag">Compraventa</span></div>
+            <button onclick="abrirPDF('caso4','Rotura de Pistón')" class="caso-pdf-btn"><i class="fas fa-file-pdf"></i> Ver informe pericial</button>
+          </div>
+        </div>
+
+        <!-- Caso 5 -->
+        <div class="caso-card reveal">
+          <div class="caso-header">
+            <div class="caso-num">5</div>
+            <div class="caso-header-txt">
+              <h3>Daños rehusados por aseguradora</h3>
+              <div class="caso-tipo">Reclamación por daños rehusados</div>
+            </div>
+            <div class="caso-badge ganado">✓ Ganado</div>
+          </div>
+          <div class="caso-body">
+            <p>Compañía de seguros que rechazó abonar los daños argumentando causas no cubiertas. El informe pericial técnico refutó los argumentos de la aseguradora y la reclamación prosperó en vía judicial.</p>
+            <div class="caso-tags"><span class="caso-tag">Daños rehusados</span><span class="caso-tag">Aseguradora</span><span class="caso-tag">Reclamación</span></div>
+            <button onclick="abrirPDF('caso5','Daños Rehusados')" class="caso-pdf-btn"><i class="fas fa-file-pdf"></i> Ver informe pericial</button>
+          </div>
+        </div>
+
+        <!-- Caso 6 -->
+        <div class="caso-card reveal">
+          <div class="caso-header">
+            <div class="caso-num">6</div>
+            <div class="caso-header-txt">
+              <h3>Informe valor venal y de mercado</h3>
+              <div class="caso-tipo">Valoración oficial con tablas oficiales</div>
+            </div>
+            <div class="caso-badge informe">Informe</div>
+          </div>
+          <div class="caso-body">
+            <p>Valoración de un Dacia Duster II mediante tablas oficiales con correcciones por kilometraje, fecha de matriculación y equipamiento. Valor venal: 11.060,95€ — Valor de mercado: 12.367,02€.</p>
+            <div class="caso-tags"><span class="caso-tag">Valor venal</span><span class="caso-tag">Valor mercado</span><span class="caso-tag">Tablas oficiales</span></div>
+            <button onclick="abrirPDF('caso6','Valor Venal y Mercado')" class="caso-pdf-btn"><i class="fas fa-file-pdf"></i> Ver informe pericial</button>
+          </div>
+        </div>
+
+        <!-- Caso 7 -->
+        <div class="caso-card reveal">
+          <div class="caso-header">
+            <div class="caso-num">7</div>
+            <div class="caso-header-txt">
+              <h3>Valoración de daños en camión</h3>
+              <div class="caso-tipo">Vehículo industrial — Peritación de daños</div>
+            </div>
+            <div class="caso-badge ganado">✓ Ganado</div>
+          </div>
+          <div class="caso-body">
+            <p>Peritación técnica de daños en camión Volvo LNG tras siniestro con daños frontales severos. Evaluación del coste real frente a la valoración reducida de la aseguradora.</p>
+            <div class="caso-tags"><span class="caso-tag">Vehículo industrial</span><span class="caso-tag">Camión</span><span class="caso-tag">Daños</span></div>
+            <button onclick="abrirPDF('caso7','Valoración Daños Camión')" class="caso-pdf-btn"><i class="fas fa-file-pdf"></i> Ver informe pericial</button>
+          </div>
+        </div>
+
+        <!-- Caso 8 -->
+        <div class="caso-card reveal">
+          <div class="caso-header">
+            <div class="caso-num">8</div>
+            <div class="caso-header-txt">
+              <h3>Pérdida total de vehículo</h3>
+              <div class="caso-tipo">Valoración pérdida total — Indemnización</div>
+            </div>
+            <div class="caso-badge ganado">✓ Ganado</div>
+          </div>
+          <div class="caso-body">
+            <p>BMW Serie 1 declarado pérdida total con valoración de la aseguradora inferior al mercado real. El informe con tablas oficiales y testigos de vehículos similares incrementó la indemnización final.</p>
+            <div class="caso-tags"><span class="caso-tag">Pérdida total</span><span class="caso-tag">Indemnización</span><span class="caso-tag">Aseguradora</span></div>
+            <button onclick="abrirPDF('caso8','Valoración Pérdida Total')" class="caso-pdf-btn"><i class="fas fa-file-pdf"></i> Ver informe pericial</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proceso -->
+  <section class="section process-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag reveal">Proceso</div>
+        <h2 class="section-title reveal">Cómo <span class="gradient-text">Trabajamos</span></h2>
+        <p class="section-desc reveal">Un proceso sencillo, rápido y totalmente transparente.</p>
+      </div>
+      <div class="process-timeline">
+        <div class="process-step reveal">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>Nos Contactas</h3>
+            <p>Llámanos al <strong>652 933 992</strong> o escríbenos a <strong>gijonperitacion@gmail.com</strong>. Te atendemos de lunes a viernes y urgencias.</p>
+          </div>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step reveal">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>Elegimos Modalidad</h3>
+            <p>Acordamos peritación <strong>presencial</strong> en toda Asturias o por <strong>videollamada</strong> para toda España según tu preferencia.</p>
+          </div>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step reveal">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>Elaboramos el Informe</h3>
+            <p>Informe técnico con fotografías y valoración por tablas oficiales + testigos reales. Plazo según la complejidad del siniestro.</p>
+          </div>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step reveal">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <h3>Te Asesoramos</h3>
+            <p>Explicamos el informe y si lo necesitas te derivamos a un abogado especializado sin ningún compromiso adicional.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Por qué elegirnos -->
+  <section class="section why-section" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag reveal">¿Por Qué Elegirnos?</div>
+        <h2 class="section-title reveal">Rigor, experiencia <span class="gradient-text">y resultados</span></h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal" style="cursor:default;">
+          <div class="service-icon service-icon--amber"><i class="fas fa-award" style="font-size:1.5rem"></i></div>
+          <h3>+20 años de experiencia</h3>
+          <p>Más de dos décadas peritando vehículos en Gijón y Asturias, con conocimiento profundo de todo tipo de siniestros.</p>
+        </div>
+        <div class="service-card reveal" style="cursor:default;">
+          <div class="service-icon service-icon--blue"><i class="fas fa-id-badge" style="font-size:1.5rem"></i></div>
+          <h3>Titulado VA · DGS</h3>
+          <p>Perito de Seguros titulado en VA con el V.º B.º de la Dirección General de Seguros. Asociado APCAS y FIEA.</p>
+        </div>
+        <div class="service-card reveal" style="cursor:default;">
+          <div class="service-icon service-icon--green"><i class="fas fa-chart-bar" style="font-size:1.5rem"></i></div>
+          <h3>Tablas oficiales + testigos</h3>
+          <p>Tablas oficiales respaldadas con testigos reales de vehículos similares para un valor venal y de mercado real e incontestable.</p>
+        </div>
+        <div class="service-card reveal" style="cursor:default;">
+          <div class="service-icon service-icon--purple"><i class="fas fa-trophy" style="font-size:1.5rem"></i></div>
+          <h3>90% casos ganados</h3>
+          <p>El 90% de los casos llevados a juicio se resuelven a favor del cliente. La solidez técnica de nuestros informes marca la diferencia.</p>
+        </div>
+        <div class="service-card reveal" style="cursor:default;">
+          <div class="service-icon service-icon--cyan"><i class="fas fa-video" style="font-size:1.5rem"></i></div>
+          <h3>Presencial o por vídeo</h3>
+          <p>Peritamos in situ en toda Asturias o mediante videollamada para toda España según la urgencia y tipo de siniestro.</p>
+        </div>
+        <div class="service-card reveal" style="cursor:default;">
+          <div class="service-icon service-icon--red"><i class="fas fa-gavel" style="font-size:1.5rem"></i></div>
+          <h3>Abogado si lo necesitas</h3>
+          <p>Si no tienes representación legal, te ponemos en contacto con abogados especializados sin ningún compromiso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cobertura -->
+  <section class="section" id="cobertura">
+    <div class="container">
+      <div class="cobertura-grid">
+        <div class="reveal">
+          <div class="section-tag">Zona de Actuación</div>
+          <h2 class="section-title" style="font-family:var(--font-display); font-size:2.2rem; margin-bottom:1rem;">Cobertura en <span class="gradient-text">Asturias</span></h2>
+          <p style="color:var(--text-muted); font-size:1.05rem; line-height:1.7; margin-bottom:1.5rem;">Operamos principalmente en Gijón y nos desplazamos a toda Asturias. Videoperitaciones disponibles para toda España.</p>
+          <div class="zona-tags">
+            <span class="zona-tag">📍 Gijón</span>
+            <span class="zona-tag">📍 Oviedo</span>
+            <span class="zona-tag">📍 Avilés</span>
+            <span class="zona-tag">📍 Siero</span>
+            <span class="zona-tag">📍 Langreo</span>
+            <span class="zona-tag">📍 Mieres</span>
+            <span class="zona-tag">📍 Cangas de Onís</span>
+            <span class="zona-tag">📍 Toda Asturias</span>
+            <span class="zona-tag">🎥 Videoperitación España</span>
+          </div>
+        </div>
+        <div class="reveal cobertura-map">
+          <iframe src="https://maps.google.com/maps?q=Gij%C3%B3n,+Asturias,+Spain&t=&z=12&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy" title="Zona de cobertura Gijón Peritaciones"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Testimonios -->
-  <section class="section testimonials-section">
+  <section class="section testimonials-section" style="background: var(--bg-secondary);">
     <div class="container">
       <div class="section-header">
         <div class="section-tag reveal">Testimonios</div>
@@ -337,10 +691,7 @@
             <p>"Tras mi accidente la aseguradora me ofreció una cantidad muy inferior al daño real. Gijón Peritaciones elaboró un informe que me permitió reclamar correctamente. Conseguí el 40% más de indemnización."</p>
             <div class="testimonial-author">
               <div class="author-avatar">MT</div>
-              <div>
-                <strong>María Torres</strong>
-                <span>Peritación de accidente</span>
-              </div>
+              <div><strong>María Torres</strong><span>Peritación de accidente</span></div>
             </div>
           </div>
           <div class="testimonial-card">
@@ -348,21 +699,15 @@
             <p>"Quería comprar un coche de segunda mano y pedí una inspección precompra. El perito detectó que el cuentakilómetros estaba manipulado y los bajos presentaban corrosión importante. Me ahorré un gran disgusto."</p>
             <div class="testimonial-author">
               <div class="author-avatar">JR</div>
-              <div>
-                <strong>Javier Rodríguez</strong>
-                <span>Inspección precompra</span>
-              </div>
+              <div><strong>Javier Rodríguez</strong><span>Inspección precompra</span></div>
             </div>
           </div>
           <div class="testimonial-card">
             <div class="stars">★★★★★</div>
-            <p>"Necesitaba una tasación oficial del vehículo de mi padre fallecido para la herencia. El servicio fue muy profesional, rápido y el informe completísimo. Muy recomendable."</p>
+            <p>"Mi moto fue golpeada por un camión. La aseguradora quería pagar solo una parte de los daños. Con el informe pericial de Gijón Peritaciones conseguí la indemnización completa. Totalmente recomendables."</p>
             <div class="testimonial-author">
               <div class="author-avatar">AL</div>
-              <div>
-                <strong>Ana López</strong>
-                <span>Tasación por herencia</span>
-              </div>
+              <div><strong>Antonio López</strong><span>Daños por impacto</span></div>
             </div>
           </div>
           <div class="testimonial-card">
@@ -370,51 +715,39 @@
             <p>"Como abogado, trabajo frecuentemente con Gijón Peritaciones para obtener informes periciales en causas judiciales. Su rigor técnico y su desempeño en sala son impecables. Son mis peritos de confianza."</p>
             <div class="testimonial-author">
               <div class="author-avatar">PG</div>
-              <div>
-                <strong>Pedro García</strong>
-                <span>Abogado - Perito Judicial</span>
-              </div>
+              <div><strong>Pedro García</strong><span>Abogado - Perito Judicial</span></div>
             </div>
           </div>
           <div class="testimonial-card">
             <div class="stars">★★★★★</div>
-            <p>"Me robaron el coche y lo encontraron con daños severos. La aseguradora quería repararlo pero el perito demostró que era una pérdida total. Gracias a su informe cobré el valor real del vehículo."</p>
+            <p>"Compramos un coche y a las pocas semanas reventó el motor. El informe demostró que la rotura del pistón era preexistente y el vendedor tuvo que pagar la reparación. Sin este informe no hubiéramos cobrado nada."</p>
             <div class="testimonial-author">
               <div class="author-avatar">CS</div>
-              <div>
-                <strong>Carmen Suárez</strong>
-                <span>Daños por robo</span>
-              </div>
+              <div><strong>Carmen Suárez</strong><span>Rotura de pistón</span></div>
             </div>
           </div>
         </div>
         <div class="testimonials-controls">
-          <button class="testimonial-btn" id="prevTestimonial" aria-label="Anterior">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
+          <button class="testimonial-btn" id="prevTestimonial" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
           <div class="testimonial-dots" id="testimonialDots"></div>
-          <button class="testimonial-btn" id="nextTestimonial" aria-label="Siguiente">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
+          <button class="testimonial-btn" id="nextTestimonial" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
+  <!-- CTA -->
   <section class="cta-section">
     <div class="cta-bg"></div>
     <div class="container">
       <div class="cta-content reveal">
         <h2>¿Necesitas una Peritación?</h2>
-        <p>Contacta ahora y recibe una respuesta en menos de 2 horas. Sin compromisos, sin costes ocultos.</p>
+        <p>Consulta gratuita y sin compromiso. Nos ponemos en contacto a la mayor brevedad posible.</p>
         <div class="cta-actions">
-          <a href="contacto.html" class="btn-primary btn-lg">Solicitar Peritación Gratis</a>
-          <a href="tel:+34985000000" class="btn-outline btn-lg">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-            </svg>
-            985 000 000
+          <a href="contacto.html" class="btn-primary btn-lg">Solicitar Peritación</a>
+          <a href="tel:+34652933992" class="btn-outline btn-lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            652 933 992
           </a>
         </div>
       </div>
@@ -433,37 +766,29 @@
                 <path d="M8 24 L12 16 L28 16 L32 24 L28 26 L12 26 Z" fill="url(#footerLogoGrad)"/>
                 <circle cx="14" cy="26" r="3" fill="#0a0f1e" stroke="url(#footerLogoGrad)" stroke-width="1.5"/>
                 <circle cx="26" cy="26" r="3" fill="#0a0f1e" stroke="url(#footerLogoGrad)" stroke-width="1.5"/>
-                <defs>
-                  <linearGradient id="footerLogoGrad" x1="0" y1="0" x2="40" y2="40">
-                    <stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#f59e0b"/>
-                  </linearGradient>
-                </defs>
+                <defs><linearGradient id="footerLogoGrad" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient></defs>
               </svg>
             </div>
             <div class="logo-text"><span class="logo-main">Gijón</span><span class="logo-sub">Peritaciones</span></div>
           </a>
-          <p>Peritos de vehículos independientes en Gijón. Servicio profesional, rápido y de confianza en toda Asturias.</p>
+          <p>Más de 20 años y +10.000 peritaciones en Asturias. Titulado VA · DGS · APCAS-FIEA. Peritos independientes a tu servicio.</p>
           <div class="social-links">
-            <a href="#" aria-label="Facebook" class="social-link">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <a href="https://wa.me/34652933992" target="_blank" aria-label="WhatsApp" class="social-link" style="background:rgba(37,211,102,0.15); color:#25D366;">
+              <i class="fab fa-whatsapp"></i>
             </a>
-            <a href="#" aria-label="Instagram" class="social-link">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            </a>
-            <a href="#" aria-label="LinkedIn" class="social-link">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
+            <a href="#" aria-label="Facebook" class="social-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
           </div>
         </div>
         <div class="footer-col">
           <h4>Servicios</h4>
           <ul>
-            <li><a href="servicios.html#accidentes">Peritación de Accidentes</a></li>
-            <li><a href="servicios.html#tasacion">Tasación de Vehículos</a></li>
-            <li><a href="servicios.html#seguros">Peritación para Seguros</a></li>
-            <li><a href="servicios.html#judicial">Perito Judicial</a></li>
+            <li><a href="servicios.html#accidentes">Peritación de Siniestros</a></li>
+            <li><a href="servicios.html#tasacion">Valor Venal y Mercado</a></li>
+            <li><a href="servicios.html#seguros">Perito Contradictorio</a></li>
+            <li><a href="servicios.html#judicial">Videoperitación</a></li>
             <li><a href="servicios.html#precompra">Inspección Precompra</a></li>
-            <li><a href="servicios.html#robo">Daños por Robo</a></li>
+            <li><a href="servicios.html#robo">Daños y Vicios Ocultos</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -482,25 +807,25 @@
           <ul class="contact-list">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Calle Corrida, 12 - 1º<br>33201 Gijón, Asturias
+              Gijón, Asturias
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07"/></svg>
-              <a href="tel:+34985000000">985 000 000</a>
+              <a href="tel:+34652933992">652 933 992</a>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              <a href="mailto:info@gijonperitaciones.es">info@gijonperitaciones.es</a>
+              <a href="mailto:gijonperitacion@gmail.com">gijonperitacion@gmail.com</a>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              Lun–Vie: 9:00 – 19:00<br>Sáb: 9:00 – 14:00
+              Lun–Vie: 9:00 – 19:00<br>Urgencias disponible
             </li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 Gijón Peritaciones S.L. · Todos los derechos reservados · CIF: B-33000000</p>
+        <p>© 2026 Gijón Peritaciones S.L. · Todos los derechos reservados · Titulado VA · DGS · APCAS-FIEA</p>
         <div class="footer-legal">
           <a href="aviso-legal.html">Aviso Legal</a>
           <a href="privacidad.html">Privacidad</a>
@@ -521,6 +846,51 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal PDF viewer — SIN botón de descarga -->
+  <div class="pdf-modal" id="pdfModal" onclick="if(event.target===this)cerrarPDF()">
+    <div class="pdf-modal-inner">
+      <div class="pdf-modal-header">
+        <h4 id="pdfTitle">Informe Pericial</h4>
+        <button class="pdf-modal-close" onclick="cerrarPDF()"><i class="fas fa-times"></i></button>
+      </div>
+      <iframe id="pdfFrame" class="pdf-modal-frame" title="Informe Pericial"></iframe>
+    </div>
+  </div>
+
+  <!-- WhatsApp flotante -->
+  <a href="https://wa.me/34652933992" class="wa-btn" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+  <script>
+    // Rutas de los PDFs — carpeta pdfs/ junto al index.html
+    const PDF_RUTAS = {
+      'caso1': 'pdfs/dan_os_ocultos-Oxidacio_n.pdf',
+      'caso2': 'pdfs/dan_os_cocultos-EGR_anulada.pdf',
+      'caso3': 'pdfs/reclamacion_a_Compan_ia_de_Seguros_dan_os_por_caida_en_parado.pdf',
+      'caso4': 'pdfs/reclamacion_a_Compraventa_rotura_de_Piston.pdf',
+      'caso5': 'pdfs/reclamacio_n_dan_os_rehusados_Compan_ia_de_Seguros.pdf',
+      'caso6': 'pdfs/valor_venal_y_mercado_.pdf',
+      'caso7': 'pdfs/Valoracion_de_dan_os_camio_n.pdf',
+      'caso8': 'pdfs/valoracion_perdida_total.pdf'
+    };
+
+    function abrirPDF(id, titulo) {
+      const ruta = PDF_RUTAS[id];
+      document.getElementById('pdfTitle').textContent = titulo;
+      // #toolbar=0 evita el botón de descarga nativo del visor PDF del navegador
+      document.getElementById('pdfFrame').src = ruta + '#toolbar=0&navpanes=0&scrollbar=1';
+      document.getElementById('pdfModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function cerrarPDF() {
+      document.getElementById('pdfModal').classList.remove('open');
+      document.getElementById('pdfFrame').src = '';
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarPDF(); });
+  </script>
 
   <script src="main.js"></script>
 </body>
