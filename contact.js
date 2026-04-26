@@ -217,49 +217,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const body = JSON.stringify(payload);
-    const isRedirectStatus = (status) => [301, 302, 303, 307, 308].includes(status);
 
     try {
       const response = await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
-        redirect: 'manual',
         headers: {
-          'Content-Type': 'text/plain;charset=utf-8'
+          'Content-Type': 'application/json'
         },
         body
       });
 
-      if (response.type === 'opaqueredirect' || isRedirectStatus(response.status) || response.ok) {
-        return;
+      const responseText = await response.text();
+      let result = null;
+
+      try {
+        result = responseText ? JSON.parse(responseText) : null;
+      } catch (parseError) {
+        result = null;
       }
 
-      // Algunos despliegues de Apps Script devuelven 405 tras seguir redirect de POST.
-      // En ese caso intentamos envio en no-cors para completar el submit.
-      if (response.status === 405) {
-        await fetch(APPS_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'text/plain;charset=utf-8'
-          },
-          body
-        });
-        return;
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText || 'respuesta no valida'}`);
       }
 
-      throw new Error(`Error HTTP ${response.status}`);
+      if (!result || result.ok !== true) {
+        const detail = result && result.error ? ` (${result.error})` : '';
+        throw new Error(`Apps Script no confirmo el envio${detail}`);
+      }
     } catch (error) {
-      const maybeCorsIssue = error instanceof TypeError || String(error).includes('Failed to fetch');
-      if (!maybeCorsIssue) throw error;
-
-      await fetch(APPS_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8'
-        },
-        body
-      });
+      throw new Error(`Fallo de red al enviar (${error.message || error})`);
     }
   }
 
