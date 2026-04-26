@@ -41,35 +41,62 @@
   </section>
 
   <section class="section">
-    <div class="container" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem;">
-      <article class="service-card reveal" style="padding: 1.5rem;">
-        <div style="height:200px; background:var(--bg-primary); border-radius:var(--radius-md); margin-bottom:1.5rem; display:flex; align-items:center; justify-content:center; border:1px solid var(--border-glass);">
-           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" width="60" height="60" style="color:var(--text-muted)"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-        </div>
-        <div class="section-tag" style="font-size:0.75rem; padding: 0.2rem 0.6rem; margin-bottom:0.5rem">Consejos Legales</div>
-        <h3 style="font-size:1.3rem; margin-bottom:0.75rem;">¿Qué hacer si el seguro te declara "Siniestro Total"?</h3>
-        <p style="margin-bottom:1.5rem;">Aprende tus derechos según el artículo 38 de la Ley de Contrato de Seguro y cómo un peritaje independiente puede salvar la valoración de tu coche.</p>
-        <span class="service-link" style="cursor:pointer">Leer artículo</span>
+    <div class="container">
+      <div class="section-header reveal" style="margin-bottom:2rem;">
+        <div class="section-tag">Publicaciones Recientes</div>
+        <h2 class="section-title">Artículos prácticos para conductores en <span class="gradient-text">Asturias</span></h2>
+        <p class="section-desc">Guías redactadas por peritos para ayudarte a tomar decisiones con base técnica y defender mejor tus intereses ante aseguradoras y compraventas.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem;">
+        <article class="service-card reveal" style="padding:1.5rem;">
+          <div class="section-tag" style="font-size:0.75rem; padding:0.2rem 0.6rem; margin-bottom:0.7rem">Consejos Legales</div>
+          <h3 style="font-size:1.3rem; margin-bottom:0.6rem;">Qué hacer si te declaran siniestro total y no estás de acuerdo</h3>
+          <p style="margin-bottom:1rem;">Cómo revisar la oferta de la aseguradora, qué documentación pedir y cuándo conviene encargar una peritación contradictoria.</p>
+          <a href="#articulo-siniestro" class="service-link">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+        </article>
+
+        <article class="service-card reveal" style="padding:1.5rem;">
+          <div class="section-tag" style="font-size:0.75rem; padding:0.2rem 0.6rem; margin-bottom:0.7rem">Compraventa</div>
+          <h3 style="font-size:1.3rem; margin-bottom:0.6rem;">Segunda mano: 7 comprobaciones antes de pagar una señal</h3>
+          <p style="margin-bottom:1rem;">Puntos críticos de chasis, electrónica y mantenimiento que suelen ocultar costes altos tras la compra.</p>
+          <a href="#articulo-segundamano" class="service-link">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+        </article>
+
+        <article class="service-card reveal" style="padding:1.5rem;">
+          <div class="section-tag" style="font-size:0.75rem; padding:0.2rem 0.6rem; margin-bottom:0.7rem">Tasaciones</div>
+          <h3 style="font-size:1.3rem; margin-bottom:0.6rem;">Valor venal y valor de mercado: diferencias que impactan tu indemnización</h3>
+          <p style="margin-bottom:1rem;">Guía clara para entender cómo se calcula cada importe y cómo argumentar una reclamación con base técnica.</p>
+          <a href="#articulo-valoracion" class="service-link">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container" style="display:grid; gap:1.5rem;">
+      <article id="articulo-siniestro" class="service-card reveal" style="padding:2rem;">
+        <div class="section-tag" style="font-size:0.75rem; padding:0.2rem 0.6rem; margin-bottom:0.8rem">Publicado: 22/04/2026</div>
+        <h2 style="font-size:1.7rem; margin-bottom:1rem;">Qué hacer si te declaran siniestro total y no estás de acuerdo</h2>
+        <p>Cuando una aseguradora declara siniestro total, suele comparar el coste de reparación con un valor de referencia del vehículo. El problema aparece cuando ese valor no refleja el estado real del coche, equipamiento, kilometraje o demanda de mercado local.</p>
+        <p>Antes de aceptar la oferta, solicita por escrito la valoración utilizada y el desglose del cálculo. Revisa si se ha usado valor venal, valor de mercado o alguna mejora contractual de póliza. Muchas discrepancias nacen porque se mezcla un criterio con otro sin explicarlo bien.</p>
+        <p>Si la diferencia económica es relevante, una peritación independiente permite documentar daños, coste de reparación y valor razonable del vehículo con argumentos técnicos. Esa base es clave para negociar con la aseguradora o defender la reclamación en vía judicial si fuera necesario.</p>
       </article>
 
-      <article class="service-card reveal" style="padding: 1.5rem;">
-        <div style="height:200px; background:var(--bg-primary); border-radius:var(--radius-md); margin-bottom:1.5rem; display:flex; align-items:center; justify-content:center; border:1px solid var(--border-glass);">
-           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" width="60" height="60" style="color:var(--text-muted)"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-        </div>
-        <div class="section-tag" style="font-size:0.75rem; padding: 0.2rem 0.6rem; margin-bottom:0.5rem">Mecánica</div>
-        <h3 style="font-size:1.3rem; margin-bottom:0.75rem;">Los 5 fallos ocultos más comunes al comprar de segunda mano</h3>
-        <p style="margin-bottom:1.5rem;">Te contamos los problemas mecánicos más repetidos que encontramos en nuestras inspecciones de vehículos usados en Asturias.</p>
-        <span class="service-link" style="cursor:pointer">Leer artículo</span>
+      <article id="articulo-segundamano" class="service-card reveal" style="padding:2rem;">
+        <div class="section-tag" style="font-size:0.75rem; padding:0.2rem 0.6rem; margin-bottom:0.8rem">Publicado: 15/04/2026</div>
+        <h2 style="font-size:1.7rem; margin-bottom:1rem;">Segunda mano: 7 comprobaciones antes de pagar una señal</h2>
+        <p>En inspecciones precompra vemos fallos repetidos: soldaduras no declaradas, lecturas de diagnosis con averías históricas, desgaste irregular de neumáticos y mantenimientos sin trazabilidad. Todo ello puede convertir una “buena oferta” en una reparación costosa en pocos meses.</p>
+        <p>Antes de reservar un vehículo, comprueba estructura y holguras, estado de frenos y suspensión, historial de mantenimiento verificable y coherencia entre kilometraje, desgaste interior y estado mecánico. También conviene revisar documentos administrativos y cargas.</p>
+        <p>Una inspección técnica previa te da un informe objetivo para negociar precio, exigir reparaciones previas o descartar la compra a tiempo. Es una inversión pequeña frente al riesgo de asumir un vehículo con averías ocultas.</p>
       </article>
 
-      <article class="service-card reveal" style="padding: 1.5rem;">
-        <div style="height:200px; background:var(--bg-primary); border-radius:var(--radius-md); margin-bottom:1.5rem; display:flex; align-items:center; justify-content:center; border:1px solid var(--border-glass);">
-           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" width="60" height="60" style="color:var(--text-muted)"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-        </div>
-        <div class="section-tag" style="font-size:0.75rem; padding: 0.2rem 0.6rem; margin-bottom:0.5rem">Tasaciones</div>
-        <h3 style="font-size:1.3rem; margin-bottom:0.75rem;">Cómo se calcula el "Valor Venal" modificado en 2025</h3>
-        <p style="margin-bottom:1.5rem;">Descubre las tablas de hacienda actuales, depreciación temporal y factores de mercado que alteran el valor real de tu vehículo.</p>
-        <span class="service-link" style="cursor:pointer">Leer artículo</span>
+      <article id="articulo-valoracion" class="service-card reveal" style="padding:2rem;">
+        <div class="section-tag" style="font-size:0.75rem; padding:0.2rem 0.6rem; margin-bottom:0.8rem">Publicado: 08/04/2026</div>
+        <h2 style="font-size:1.7rem; margin-bottom:1rem;">Valor venal y valor de mercado: diferencias que impactan tu indemnización</h2>
+        <p>El valor venal suele partir de tablas de referencia y depreciación por antigüedad, mientras que el valor de mercado intenta aproximar el coste real de adquirir un vehículo equivalente en el momento del siniestro.</p>
+        <p>En la práctica, aplicar uno u otro criterio puede suponer diferencias relevantes en la indemnización final. Por eso es importante revisar qué establece la póliza y si la compañía está aplicando ese criterio de forma correcta y transparente.</p>
+        <p>Cuando hay dudas, un informe pericial puede justificar técnicamente una valoración más ajustada a la realidad del vehículo y del mercado local, aportando respaldo objetivo para una negociación eficaz.</p>
       </article>
     </div>
   </section>
@@ -78,6 +105,7 @@
     <div class="container">
       <div class="footer-bottom" style="justify-content:center; text-align:center;">
         <p>© 2025 Gijón Peritaciones S.L. · <a href="aviso-legal.html" style="color:var(--accent-blue)">Aviso Legal</a></p>
+        <p><a href="https://luckybase.es" target="_blank" rel="noopener noreferrer" style="color:var(--accent-blue); font-weight:700;">DESARROLLADO POR LUCKYBASE</a></p>
       </div>
     </div>
   </footer>
