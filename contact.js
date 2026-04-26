@@ -217,6 +217,65 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const body = JSON.stringify(payload);
+    const isNetworkError = (error) => {
+      const msg = String((error && error.message) || error || '').toLowerCase();
+      return msg.includes('failed to fetch')
+        || msg.includes('networkerror')
+        || msg.includes('load failed');
+    };
+
+    const sendViaHiddenForm = (payloadForForm) => new Promise((resolve, reject) => {
+      const iframeName = `gas_submit_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+      const iframe = document.createElement('iframe');
+      const form = document.createElement('form');
+      const payloadInput = document.createElement('input');
+      let settled = false;
+      let submitted = false;
+
+      const cleanup = () => {
+        form.remove();
+        iframe.remove();
+      };
+
+      const timeout = setTimeout(() => {
+        if (settled) return;
+        settled = true;
+        cleanup();
+        reject(new Error('Timeout al enviar por formulario oculto'));
+      }, 12000);
+
+      iframe.name = iframeName;
+      iframe.style.display = 'none';
+      iframe.addEventListener('load', () => {
+        if (!submitted || settled) return;
+        settled = true;
+        clearTimeout(timeout);
+        cleanup();
+        resolve();
+      });
+      iframe.addEventListener('error', () => {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timeout);
+        cleanup();
+        reject(new Error('Error de carga en iframe de envio'));
+      });
+
+      form.method = 'POST';
+      form.action = APPS_SCRIPT_URL;
+      form.target = iframeName;
+      form.style.display = 'none';
+
+      payloadInput.type = 'hidden';
+      payloadInput.name = 'payload';
+      payloadInput.value = JSON.stringify(payloadForForm);
+      form.appendChild(payloadInput);
+
+      document.body.appendChild(iframe);
+      document.body.appendChild(form);
+      submitted = true;
+      form.submit();
+    });
 
     try {
       const response = await fetch(APPS_SCRIPT_URL, {
@@ -246,6 +305,10 @@ document.addEventListener('DOMContentLoaded', () => {
         throw new Error(`Apps Script no confirmo el envio${detail}`);
       }
     } catch (error) {
+      if (!isNetworkError(error)) {
+        throw error;
+      }
+
       try {
         // Fallback para entornos donde CORS bloquea la lectura de respuesta,
         // pero el POST puede entregarse correctamente al Apps Script.
@@ -258,7 +321,11 @@ document.addEventListener('DOMContentLoaded', () => {
           body
         });
       } catch (fallbackError) {
-        throw new Error(`Fallo de red al enviar (${fallbackError.message || fallbackError})`);
+        try {
+          await sendViaHiddenForm(payload);
+        } catch (formError) {
+          throw new Error(`Fallo de red al enviar (${formError.message || fallbackError.message || fallbackError})`);
+        }
       }
     }
   }
