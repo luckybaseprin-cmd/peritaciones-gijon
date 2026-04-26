@@ -304,6 +304,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const detail = result && result.error ? ` (${result.error})` : '';
         throw new Error(`Apps Script no confirmo el envio${detail}`);
       }
+
+      return { confirmed: true, transport: 'fetch' };
     } catch (error) {
       if (!isNetworkError(error)) {
         throw error;
@@ -320,9 +322,11 @@ document.addEventListener('DOMContentLoaded', () => {
           },
           body
         });
+        return { confirmed: false, transport: 'no-cors' };
       } catch (fallbackError) {
         try {
           await sendViaHiddenForm(payload);
+          return { confirmed: false, transport: 'form' };
         } catch (formError) {
           throw new Error(`Fallo de red al enviar (${formError.message || fallbackError.message || fallbackError})`);
         }
@@ -372,8 +376,17 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         clearSubmitError();
         const payload = await buildPayload();
-        await sendToAppsScript(payload);
-        renderSuccessState();
+        const sendResult = await sendToAppsScript(payload);
+
+        if (sendResult && sendResult.confirmed) {
+          renderSuccessState();
+          return;
+        }
+
+        const via = sendResult && sendResult.transport ? sendResult.transport : 'fallback';
+        showSubmitError(`Solicitud enviada sin confirmacion (${via}). Puede haberse entregado, pero no se pudo verificar. Revisa spam/ejecuciones en Apps Script antes de reenviar.`);
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
       } catch (error) {
         console.error('Error enviando formulario:', error);
         const detalle = error && error.message ? ` Detalle: ${error.message}` : '';
