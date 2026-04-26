@@ -222,7 +222,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const response = await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          // text/plain evita preflight CORS en la mayoria de navegadores.
+          'Content-Type': 'text/plain;charset=utf-8'
         },
         body
       });
@@ -245,7 +246,20 @@ document.addEventListener('DOMContentLoaded', () => {
         throw new Error(`Apps Script no confirmo el envio${detail}`);
       }
     } catch (error) {
-      throw new Error(`Fallo de red al enviar (${error.message || error})`);
+      try {
+        // Fallback para entornos donde CORS bloquea la lectura de respuesta,
+        // pero el POST puede entregarse correctamente al Apps Script.
+        await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body
+        });
+      } catch (fallbackError) {
+        throw new Error(`Fallo de red al enviar (${fallbackError.message || fallbackError})`);
+      }
     }
   }
 
