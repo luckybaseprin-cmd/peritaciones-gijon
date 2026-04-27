@@ -1,9 +1,10 @@
-const DESTINATARIO = 'gijonperitacion@gmail.com';
+const DESTINATARIO = 'contacto@luckybase.es';
 const REMITENTE_NOMBRE = 'Web Gijon Peritaciones';
 const ZONA_HORARIA = 'Europe/Madrid';
 const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024;
 const MAX_TOTAL_FILES_BYTES = 15 * 1024 * 1024;
 const MAX_FILES = 10;
+const EMAIL_REGEX = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
 function doGet() {
   return jsonOutput_({ ok: true, message: 'Apps Script activo' });
@@ -12,31 +13,62 @@ function doGet() {
 function doPost(e) {
   try {
     const data = parseRequestData_(e);
+
+    // Honeypot anti-spam silencioso.
+    if (data.company || data.website) {
+      return jsonOutput_({ ok: true, message: 'Correo enviado' });
+    }
+
     validateRequiredFields_(data);
 
     const fecha = Utilities.formatDate(new Date(), ZONA_HORARIA, 'yyyy-MM-dd HH:mm:ss');
     const asunto = buildSubject_(data);
-    const body = buildTextBody_(data, fecha);
-    const htmlBody = buildHtmlBody_(data, fecha);
-    const attachments = buildAttachments_(data.files);
+    let attachmentWarning = '';
+    let attachments = [];
 
-    const options = {
-      name: REMITENTE_NOMBRE,
+    try {
+      attachments = buildAttachments_(data.files);
+    } catch (attachmentError) {
+      attachmentWarning = 'Adjuntos no incluidos por error tecnico: ' + String(attachmentError);
+    }
+
+    const body = buildTextBody_(data, fecha, attachmentWarning);
+    const htmlBody = buildHtmlBody_(data, fecha, attachmentWarning);
+
+    const adminTo = DESTINATARIO;
+    if (!EMAIL_REGEX.test(adminTo)) {
+      throw new Error('El correo de destino no es valido');
+    }
+
+    // Correo principal sin adjuntos ni replyTo para maximizar entregabilidad.
+    sendEmail_({
+      to: adminTo,
+      subject: asunto,
+      body: body,
       htmlBody: htmlBody
-    };
+    });
+    Logger.log('Notificacion admin principal enviada a: ' + adminTo);
 
-    if (data.email) {
-      options.replyTo = data.email;
-    }
-
+    // Si hay adjuntos, se envian en un segundo correo independiente.
     if (attachments.length) {
-      options.attachments = attachments;
+      sendEmail_({
+        to: adminTo,
+        subject: asunto + ' [Adjuntos]',
+        body: 'Se adjuntan archivos de la solicitud de ' + data.name + ' (' + data.email + ').',
+        attachments: attachments
+      });
+      Logger.log('Notificacion admin de adjuntos enviada a: ' + adminTo);
     }
 
-    MailApp.sendEmail(DESTINATARIO, asunto, body, options);
+    try {
+      sendContactAutoReply_(data);
+    } catch (autoReplyError) {
+      Logger.log('No se pudo enviar autorespuesta: ' + String(autoReplyError));
+    }
 
     return jsonOutput_({ ok: true, message: 'Correo enviado' });
   } catch (error) {
+    Logger.log('Error en doPost: ' + String(error));
     return jsonOutput_({
       ok: false,
       message: 'Error al enviar',
@@ -46,15 +78,26 @@ function doPost(e) {
 }
 
 function parseRequestData_(e) {
-  if (e && e.postData && e.postData.contents) {
-    const raw = e.postData.contents;
+  const dataFromPayloadParameter = parsePayloadParameter_(e && e.parameter ? e.parameter : null);
 
-    try {
-      const parsed = JSON.parse(raw);
-      return normalizeData_(parsed);
-    } catch (jsonError) {
-      throw new Error('El cuerpo recibido no es JSON valido');
+  if (e && e.postData && e.postData.contents) {
+    const raw = String(e.postData.contents || '').trim();
+
+    if (raw) {
+      try {
+        const parsed = JSON.parse(raw);
+        return normalizeData_(parsed);
+      } catch (jsonError) {
+        if (dataFromPayloadParameter) {
+          return dataFromPayloadParameter;
+        }
+        throw new Error('El cuerpo recibido no es JSON valido');
+      }
     }
+  }
+
+  if (dataFromPayloadParameter) {
+    return dataFromPayloadParameter;
   }
 
   if (e && e.parameter) {
@@ -64,13 +107,29 @@ function parseRequestData_(e) {
   throw new Error('No se recibieron datos en la solicitud');
 }
 
+function parsePayloadParameter_(parameter) {
+  if (!parameter || !parameter.payload) {
+    return null;
+  }
+
+  try {
+    const parsedPayload = JSON.parse(String(parameter.payload));
+    return normalizeData_(parsedPayload);
+  } catch (error) {
+    throw new Error('El campo payload no es JSON valido');
+  }
+}
+
 function normalizeData_(input) {
   return {
     source: toText_(input.source),
+    originUrl: toText_(input.originUrl),
     timestamp: toText_(input.timestamp),
     name: toText_(input.name),
     phone: toText_(input.phone),
     email: toText_(input.email),
+    company: toText_(input.company),
+    website: toText_(input.website),
     carBrand: toText_(input.carBrand),
     carModel: toText_(input.carModel),
     matricula: toText_(input.matricula),
@@ -117,6 +176,10 @@ function validateRequiredFields_(data) {
       throw new Error('Falta el campo obligatorio: ' + field);
     }
   });
+
+  if (!EMAIL_REGEX.test(data.email)) {
+    throw new Error('El email no es valido');
+  }
 
   if (!data.privacyAccepted) {
     throw new Error('Debes aceptar la politica de privacidad');
@@ -193,12 +256,18 @@ function buildSubject_(data) {
   return 'Nueva solicitud web - ' + servicio + ' - ' + data.name;
 }
 
-function buildTextBody_(data, fecha) {
+function buildTextBody_(data, fecha, attachmentWarning) {
   const filesText = data.files.length
     ? data.files.map(function(file) {
         return '- ' + file.name + ' (' + file.sizeMB + ' MB, ' + file.type + ')';
       }).join('\n')
     : 'Sin archivos';
+
+  const warningBlock = attachmentWarning
+    ? ['',
+       'AVISO TECNICO',
+       attachmentWarning]
+    : [];
 
   return [
     'Nueva solicitud desde la web de Gijon Peritaciones',
@@ -215,7 +284,7 @@ function buildTextBody_(data, fecha) {
     'Marca: ' + data.carBrand,
     'Modelo: ' + data.carModel,
     'Matricula: ' + (data.matricula || 'No indicada'),
-    'Ano: ' + (data.year || 'No indicado'),
+    'Año: ' + (data.year || 'No indicado'),
     '',
     'SERVICIO SOLICITADO',
     'Tipo: ' + (data.serviceTypeLabel || data.serviceType),
@@ -225,15 +294,19 @@ function buildTextBody_(data, fecha) {
     '',
     'ARCHIVOS ADJUNTADOS EN FORMULARIO',
     filesText
-  ].join('\n');
+  ].concat(warningBlock).join('\n');
 }
 
-function buildHtmlBody_(data, fecha) {
+function buildHtmlBody_(data, fecha, attachmentWarning) {
   const filesHtml = data.files.length
     ? '<ul>' + data.files.map(function(file) {
         return '<li>' + escapeHtml_(file.name) + ' (' + escapeHtml_(String(file.sizeMB)) + ' MB, ' + escapeHtml_(file.type) + ')</li>';
       }).join('') + '</ul>'
     : '<p>Sin archivos</p>';
+
+  const warningHtml = attachmentWarning
+    ? '<hr><h3>Aviso tecnico</h3><p>' + escapeHtml_(attachmentWarning) + '</p>'
+    : '';
 
   return [
     '<h2>Nueva solicitud desde la web de Gijon Peritaciones</h2>',
@@ -258,7 +331,8 @@ function buildHtmlBody_(data, fecha) {
     '<p>' + escapeHtml_(data.message || 'Sin mensaje adicional') + '</p>',
     '<hr>',
     '<h3>Archivos adjuntados en formulario</h3>',
-    filesHtml
+    filesHtml,
+    warningHtml
   ].join('');
 }
 
@@ -266,6 +340,125 @@ function jsonOutput_(obj) {
   return ContentService
     .createTextOutput(JSON.stringify(obj))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+function getAdminNotificationRecipients_() {
+  const props = PropertiesService.getScriptProperties();
+  const configured = toText_(props.getProperty('ADMIN_NOTIFICATION_EMAILS') || props.getProperty('ADMIN_NOTIFICATION_EMAIL'));
+  const rawList = [];
+
+  // Siempre incluir el destinatario principal del script.
+  rawList.push(DESTINATARIO);
+
+  if (configured) {
+    configured.split(/[;,]/).forEach(function(item) {
+      rawList.push(item);
+    });
+  }
+
+  const dedup = {};
+  const recipients = [];
+
+  rawList.forEach(function(item) {
+    const email = String(item || '').trim();
+    const key = email.toLowerCase();
+    if (!email || !EMAIL_REGEX.test(email) || dedup[key]) return;
+    dedup[key] = true;
+    recipients.push(email);
+  });
+
+  return recipients;
+}
+
+function getPreferredFromAlias_() {
+  const desired = String(DESTINATARIO || '').trim().toLowerCase();
+  if (!desired) return '';
+
+  try {
+    const aliases = GmailApp.getAliases() || [];
+    for (var i = 0; i < aliases.length; i++) {
+      const alias = String(aliases[i] || '').trim();
+      if (alias.toLowerCase() === desired) {
+        return alias;
+      }
+    }
+  } catch (error) {
+    Logger.log('No se pudieron leer aliases de Gmail: ' + String(error));
+  }
+
+  return '';
+}
+
+function sendEmail_(options) {
+  const to = String(options.to || '').trim();
+  const subject = String(options.subject || '').trim();
+  const body = String(options.body || '').trim() || ' ';
+
+  const mailOptions = {
+    name: REMITENTE_NOMBRE
+  };
+
+  if (options.htmlBody) {
+    mailOptions.htmlBody = options.htmlBody;
+  }
+
+  if (options.replyTo) {
+    mailOptions.replyTo = options.replyTo;
+  }
+
+  if (options.attachments && options.attachments.length) {
+    mailOptions.attachments = options.attachments;
+  }
+
+  const alias = getPreferredFromAlias_();
+  if (alias) {
+    try {
+      const gmailOptions = {
+        name: mailOptions.name,
+        htmlBody: mailOptions.htmlBody || '',
+        replyTo: mailOptions.replyTo || '',
+        from: alias
+      };
+      if (mailOptions.attachments && mailOptions.attachments.length) {
+        gmailOptions.attachments = mailOptions.attachments;
+      }
+      GmailApp.sendEmail(to, subject, body, gmailOptions);
+      return;
+    } catch (error) {
+      Logger.log('Fallo enviando con alias ' + alias + ': ' + String(error));
+    }
+  }
+
+  MailApp.sendEmail(to, subject, body, mailOptions);
+}
+
+function sendContactAutoReply_(data) {
+  if (!data.email || !EMAIL_REGEX.test(data.email)) return;
+
+  const nombre = data.name || 'cliente';
+  const subject = 'Hemos recibido tu solicitud - Gijon Peritaciones';
+  const text = [
+    'Hola ' + nombre + ',',
+    '',
+    'Hemos recibido correctamente tu solicitud.',
+    'Te responderemos lo antes posible.',
+    '',
+    'Gracias,',
+    'Gijon Peritaciones'
+  ].join('\n');
+
+  const html = [
+    '<p>Hola ' + escapeHtml_(nombre) + ',</p>',
+    '<p>Hemos recibido correctamente tu solicitud.</p>',
+    '<p>Te responderemos lo antes posible.</p>',
+    '<p>Gracias,<br>Gijon Peritaciones</p>'
+  ].join('');
+
+  MailApp.sendEmail(data.email, subject, text, {
+    name: REMITENTE_NOMBRE,
+    htmlBody: html,
+    replyTo: DESTINATARIO
+  });
 }
 
 function toText_(value) {
