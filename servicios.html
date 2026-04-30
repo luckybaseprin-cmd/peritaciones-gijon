@@ -3,13 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="1gijonperitacion.png">
+  <link rel="apple-touch-icon" href="1gijonperitacion.png">
   <title>Servicios Periciales | Gijón Peritaciones</title>
+  <meta name="description" content="Servicios de peritación de automóviles en Gijón y Asturias: siniestros, valor venal, valor de mercado, perito judicial, videoperitación e informes de valoración.">
+  <meta name="keywords" content="servicios peritación Gijón, perito judicial Asturias, valor venal coche, videoperitación, informe pericial automóvil">
+  <meta name="author" content="Gijón Peritaciones S.L.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#0a0f1e">
+  <link rel="canonical" href="/servicios.html">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Gijón Peritaciones">
+  <meta property="og:title" content="Servicios Periciales | Gijón Peritaciones">
+  <meta property="og:description" content="Peritación de siniestros, valoraciones oficiales y soporte pericial para reclamaciones y vía judicial en Asturias.">
+  <meta property="og:image" content="/1gijonperitacion.png">
+  <meta property="og:image:alt" content="Logotipo de Gijón Peritaciones">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Servicios Periciales | Gijón Peritaciones">
+  <meta name="twitter:description" content="Consulta todos nuestros servicios de peritación para automóvil en Gijón y Asturias.">
+  <meta name="twitter:image" content="/1gijonperitacion.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="animations.css">
-  <style>.header { background: var(--bg-glass-heavy); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-glass); }</style>
+  <style>
+    .header { background: var(--bg-glass-heavy); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-glass); }
+    .tag-nuevo {
+      display: inline-block;
+      background: var(--gradient-main);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 50px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+  </style>
 </head>
 <body>
   <header class="header" id="header">
@@ -38,7 +73,7 @@
     <div class="container relative z-10">
       <div class="breadcrumb reveal"><a href="index.html">Inicio</a> <span>/</span> Servicios</div>
       <h1 class="page-title reveal">Servicios de <span class="gradient-text">Peritación</span></h1>
-      <p class="section-desc reveal mx-auto max-w-2xl">Soluciones técnicas independientes y garantizadas para vehículos.</p>
+      <p class="section-desc reveal mx-auto max-w-2xl">Cubrimos todas las necesidades de peritación del automóvil, desde el siniestro hasta el informe judicial.</p>
     </div>
   </section>
 
@@ -47,47 +82,72 @@
       <div class="services-grid text-left">
           
         <div id="accidentes" class="service-card reveal">
-          <div class="service-icon service-icon--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.5 5H2.5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h15a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1z"/><path d="M5.5 15v3M13.5 15v3M2.5 10h15"/><path d="M19.5 9l2 2-2 2"/></svg></div>
-          <h3>Peritación de Accidentes</h3>
-          <p>Ofrecemos una evaluación exhaustiva y objetiva de los daños causados por accidentes de circulación, independientemente de la culpabilidad. Realizamos el informe técnico necesario para presentarlo ante la compañía aseguradora o en juzgado, asegurando la valoración real de la reparación.</p>
+          <div class="service-icon service-icon--blue"><i class="fas fa-car-burst"></i></div>
+          <h3>Peritación de siniestros</h3>
+          <p>Evaluación técnica de los daños tras un accidente. Determinamos el alcance real y el coste exacto de reparación.</p>
           <a href="contacto.html" class="service-link">Pedir cita <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
 
         <div id="tasacion" class="service-card reveal">
-          <div class="service-icon service-icon--amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-          <h3>Tasación de Vehículos</h3>
-          <p>Calculamos el valor venal y real de mercado ajustado a la fecha para situaciones de divorcios, embargos, herencias o transacciones comerciales. Nuestro sistema se basa en bases de datos europeas verificadas.</p>
+          <div class="service-icon service-icon--amber"><i class="fas fa-coins"></i></div>
+          <h3>Valor venal y valor de mercado</h3>
+          <p>Calculamos el <strong>valor venal</strong> y el <strong>valor de mercado real</strong> mediante tablas oficiales, apoyados con <strong>testigos reales de vehículos similares</strong>.</p>
           <a href="contacto.html" class="service-link">Pedir cita <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
 
         <div id="seguros" class="service-card reveal">
-          <div class="service-icon service-icon--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h3>Peritaje Contradictorio</h3>
-          <p>¿Tú compañía de seguros ha valorado a la baja los daños o ha decretado tu vehículo como Siniestro Total sin ofrecerte indemnización suficiente? Empleamos la figura del tercer perito (art. 38 Ley Contrato de Seguro) para reclamar el valor real.</p>
-          <a href="contacto.html" class="service-link">Pedir cita <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-
-        <div id="precompra" class="service-card reveal">
-          <div class="service-icon service-icon--cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-          <h3>Revisión Precompra</h3>
-          <p>Comprar un vehículo de segunda mano es un riesgo. Verificamos más de 120 puntos del vehículo antes de su compra (mecánica, electrónica, historial, diagnóstico OBD, pintura) para que no te den gato por liebre. Nos desplazamos a examinar el coche.</p>
+          <div class="service-icon service-icon--green"><i class="fas fa-scale-balanced"></i></div>
+          <h3>Perito contradictorio / judicial</h3>
+          <p>Elaboramos informes periciales para procedimientos legales. Actuamos como contraparte técnica en litigios y procesos judiciales.</p>
           <a href="contacto.html" class="service-link">Pedir cita <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
 
         <div id="judicial" class="service-card reveal">
-          <div class="service-icon service-icon--purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
-          <h3>Perito Judicial</h3>
-          <p>Informes técnicos con plena validez para su presentación en juzgados y tribunales, y ratificación y defensa en juicio. Informes visados por el colegio de ingenieros técnicos, garantizando la imparcialidad total.</p>
+          <div class="service-icon service-icon--purple"><i class="fas fa-video"></i></div>
+          <h3>Videoperitación <span class="tag-nuevo">Nuevo</span></h3>
+          <p>Peritación a distancia mediante videollamada. Sin desplazamientos, con el mismo rigor técnico. Ideal para siniestros menores o urgentes.</p>
+          <a href="contacto.html" class="service-link">Pedir cita <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+
+        <div id="precompra" class="service-card reveal">
+          <div class="service-icon service-icon--cyan"><i class="fas fa-magnifying-glass-car"></i></div>
+          <h3>Inspección precompraventa</h3>
+          <p>Inspeccionamos el estado real del vehículo, historial de daños y posibles reparaciones no declaradas antes de la compra.</p>
           <a href="contacto.html" class="service-link">Pedir cita <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
 
         <div id="robo" class="service-card reveal">
-          <div class="service-icon service-icon--red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-          <h3>Daños por Vandalismo o Robo</h3>
-          <p>Tasamos e inventariamos el costo de los daños sufridos en tu vehículo ocasionados por intento de robo o actos vandálicos. Realizamos una inspección fotográfica detallada y valoramos las piezas a restituir.</p>
+          <div class="service-icon service-icon--red"><i class="fas fa-eye-slash"></i></div>
+          <h3>Daños y vicios ocultos</h3>
+          <p>Detectamos reparaciones previas disimuladas, daños estructurales no declarados y fallos mecánicos latentes.</p>
           <a href="contacto.html" class="service-link">Pedir cita <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
 
+        <div id="gestion" class="service-card reveal">
+          <div class="service-icon service-icon--amber"><i class="fas fa-folder-open"></i></div>
+          <h3>Gestión del siniestro</h3>
+          <p>Acompañamiento en toda la tramitación: comunicación con la aseguradora, negociación de indemnizaciones y seguimiento del expediente.</p>
+          <a href="contacto.html" class="service-link">Pedir cita <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+
+        <div id="informes" class="service-card reveal">
+          <div class="service-icon service-icon--green"><i class="fas fa-file-contract"></i></div>
+          <h3>Informes de valoración</h3>
+          <p>Informes periciales oficiales de <strong>valor venal</strong> y <strong>valor de mercado</strong> con plena validez ante aseguradoras, juzgados y terceros.</p>
+          <a href="contacto.html" class="service-link">Pedir cita <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+
+      </div>
+
+      <div id="abogado" class="form-glass reveal active" style="margin-top:2.5rem; padding:1.75rem 2rem; display:flex; gap:1rem; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+        <div style="display:flex; gap:1rem; align-items:center;">
+          <div class="service-icon service-icon--cyan" style="margin:0;"><i class="fas fa-gavel"></i></div>
+          <div>
+            <h3 style="margin:0 0 .25rem 0;">¿No tienes abogado? Nosotros te proporcionamos uno</h3>
+            <p style="margin:0; color:var(--text-muted);">Si necesitas asesoramiento legal y no dispones de abogado, te ponemos en contacto con profesionales especializados <strong>sin ningún compromiso</strong>.</p>
+          </div>
+        </div>
+        <a href="tel:+34652933992" class="btn-primary" style="white-space:nowrap;"><i class="fas fa-phone"></i> Consultar gratis</a>
       </div>
     </div>
   </section>

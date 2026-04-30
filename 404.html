@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="1gijonperitacion.png">
+  <link rel="apple-touch-icon" href="1gijonperitacion.png">
+  <title>404 | Página no encontrada | Gijón Peritaciones</title>
+  <meta name="description" content="La página que buscas no existe o ha sido movida. Vuelve al inicio de Gijón Peritaciones o contacta con nosotros.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#0a0f1e">
+  <link rel="canonical" href="/404.html">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Gijón Peritaciones">
+  <meta property="og:title" content="404 | Página no encontrada | Gijón Peritaciones">
+  <meta property="og:description" content="No se ha encontrado la página solicitada. Accede al inicio o contacta con nuestro equipo.">
+  <meta property="og:image" content="/1gijonperitacion.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="404 | Página no encontrada | Gijón Peritaciones">
+  <meta name="twitter:description" content="La página solicitada no existe. Vuelve al inicio de Gijón Peritaciones.">
+  <meta name="twitter:image" content="/1gijonperitacion.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="animations.css">
+  <style>
+    .header {
+      background: var(--bg-glass-heavy);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-glass);
+    }
+
+    .not-found-section {
+      padding: 10rem 0 5rem;
+      background: radial-gradient(circle at 50% 10%, rgba(59, 130, 246, 0.2) 0%, var(--bg-primary) 60%);
+      position: relative;
+      overflow: hidden;
+      min-height: calc(100vh - 220px);
+      display: flex;
+      align-items: center;
+    }
+
+    .not-found-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .not-found-code {
+      font-family: var(--font-display);
+      font-size: clamp(4.5rem, 12vw, 8rem);
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      background: var(--gradient-main);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .not-found-desc {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .not-found-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .quick-link {
+      background: var(--bg-glass);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+
+    .quick-link:hover {
+      transform: translateY(-3px);
+      border-color: rgba(59, 130, 246, 0.45);
+    }
+
+    .quick-link i {
+      color: var(--accent-blue);
+      font-size: 1.1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .quick-link h3 {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .quick-link p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .not-found-section {
+        padding: 8.5rem 0 4rem;
+      }
+
+      .quick-links {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><img src="1gijonperitacion.png" alt="Logo Gijon Peritaciones"></div>
+        <div class="logo-text"><span class="logo-main">Gijón</span><span class="logo-sub">Peritaciones</span></div>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Inicio</a></li>
+        <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+        <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="tel:+34652933992" class="btn-phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          652 933 992
+        </a>
+        <a href="contacto.html" class="btn-primary">Solicitar Peritación</a>
+        <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </header>
+
+  <section class="not-found-section">
+    <div class="particles" id="particles"></div>
+    <div class="container">
+      <div class="not-found-wrap form-glass reveal" style="padding: 2.5rem 2rem;">
+        <div class="breadcrumb" style="margin-bottom: 1rem;"><a href="index.html">Inicio</a> <span>/</span> Error 404</div>
+        <p class="not-found-code">404</p>
+        <h1 class="page-title" style="margin-bottom: 0.8rem;">Página no encontrada</h1>
+        <p class="not-found-desc">La URL que has abierto no existe o se ha movido. Puedes volver al inicio o ir directamente a una sección útil.</p>
+
+        <div class="not-found-actions">
+          <a href="index.html" class="btn-primary btn-lg"><i class="fas fa-house"></i> Volver al Inicio</a>
+          <a href="contacto.html" class="btn-outline btn-lg"><i class="fas fa-phone"></i> Contactar</a>
+        </div>
+
+        <div class="quick-links">
+          <a class="quick-link" href="servicios.html">
+            <i class="fas fa-file-circle-check"></i>
+            <h3>Servicios</h3>
+            <p>Ver todo lo que peritamos</p>
+          </a>
+          <a class="quick-link" href="nosotros.html">
+            <i class="fas fa-user-tie"></i>
+            <h3>Nosotros</h3>
+            <p>Conoce la experiencia del perito</p>
+          </a>
+          <a class="quick-link" href="blog.html">
+            <i class="fas fa-book-open"></i>
+            <h3>Blog</h3>
+            <p>Guías y casos reales</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="justify-content:center; text-align:center;">
+        <p>© 2025 Gijón Peritaciones S.L. · Todos los derechos reservados · <a href="aviso-legal.html" style="color:var(--accent-blue)">Aviso Legal</a> y <a href="privacidad.html" style="color:var(--accent-blue)">Privacidad</a></p>
+        <p><a href="https://luckybase.es" target="_blank" rel="noopener noreferrer" style="color:var(--accent-blue); font-weight:700;">DESARROLLADO POR LUCKYBASE</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -606,6 +606,11 @@ img {
   height: 32px;
 }
 
+.service-icon i {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
 .service-icon--blue { color: var(--accent-blue); background: rgba(59, 130, 246, 0.1); }
 .service-icon--amber { color: var(--accent-amber); background: rgba(245, 158, 11, 0.1); }
 .service-icon--green { color: var(--accent-emerald); background: rgba(16, 185, 129, 0.1); }
