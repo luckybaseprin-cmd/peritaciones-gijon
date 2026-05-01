@@ -225,6 +225,11 @@ img {
   height: 56px;
 }
 
+.logo-icon.logo-banner {
+  width: 240px;
+  height: 68px;
+}
+
 .logo-icon--sm {
   width: 44px;
   height: 44px;
@@ -1380,6 +1385,11 @@ select.form-control option {
   .logo-icon {
     width: 48px;
     height: 48px;
+  }
+
+  .logo-icon.logo-banner {
+    width: 195px;
+    height: 54px;
   }
 
   .logo-icon--sm {
