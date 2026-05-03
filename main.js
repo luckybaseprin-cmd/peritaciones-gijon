@@ -68,68 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.requestAnimationFrame(step);
   }
 
-  // 5. Testimonial Slider
-  const track = document.getElementById('testimonialsTrack');
-  const prevBtn = document.getElementById('prevTestimonial');
-  const nextBtn = document.getElementById('nextTestimonial');
-  const dotsContainer = document.getElementById('testimonialDots');
-  
-  if(track && prevBtn && nextBtn && dotsContainer) {
-      const cards = Array.from(track.children);
-      const cardWidth = cards[0].getBoundingClientRect().width;
-      const gap = parseInt(window.getComputedStyle(track).gap) || 32;
-      let currentIndex = 0;
-      
-      // build dots
-      cards.forEach((_, i) => {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        if(i === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => moveTo(i));
-        dotsContainer.appendChild(dot);
-      });
-      
-      const dots = Array.from(dotsContainer.children);
-
-      function updateDots(index) {
-          dots.forEach(d => d.classList.remove('active'));
-          dots[index].classList.add('active');
-      }
-
-      function moveTo(index) {
-          if(index < 0 || index > cards.length - 1) return;
-          currentIndex = index;
-          const amountToMove = currentIndex * (cardWidth + gap);
-          track.style.transform = `translateX(-${amountToMove}px)`;
-          updateDots(currentIndex);
-      }
-
-      nextBtn.addEventListener('click', () => {
-          if (currentIndex < cards.length - 1) {
-             moveTo(currentIndex + 1);
-          } else {
-             moveTo(0); // loop back
-          }
-      });
-
-      prevBtn.addEventListener('click', () => {
-          if (currentIndex > 0) {
-              moveTo(currentIndex - 1);
-          } else {
-              moveTo(cards.length - 1); // loop end
-          }
-      });
-      
-      // optional auto slider
-      let slideInterval = setInterval(() => { nextBtn.click(); }, 5000);
-      
-      track.addEventListener('mouseenter', () => clearInterval(slideInterval));
-      track.addEventListener('mouseleave', () => {
-          slideInterval = setInterval(() => { nextBtn.click(); }, 5000);
-      });
-  }
-
-  // 6. Cookie Banner
+  // 5. Cookie Banner
   const cookieBanner = document.getElementById('cookieBanner');
   const btnAccept = document.getElementById('cookieAccept');
   const btnReject = document.getElementById('cookieReject');
@@ -152,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 7. Particle Background Effect
+  // 6. Particle Background Effect
   const particlesContainer = document.getElementById('particles');
   if (particlesContainer) {
     const particleCount = 20;
