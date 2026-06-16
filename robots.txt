@@ -3,5 +3,4 @@ Allow: /
 Disallow: /404.html
 Disallow: /gp5.html
 
-# Recomendado al publicar en dominio definitivo:
-# Sitemap: https://tu-dominio.com/sitemap.xml
+Sitemap: https://gijonperitaciones.es/sitemap.xml
